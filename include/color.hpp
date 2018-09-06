@@ -58,7 +58,7 @@ namespace hue
     // string to color
     int stoc(string a)
     {
-        // convert s to lowercase, allowing "light_blue" or "light-blue"
+        // convert s to lowercase, and variants like "light_blue"
         std::transform(a.begin(), a.end(), a.begin(), [](char c)
                        {
                             if ('A' <= c && c <= 'Z')
@@ -236,8 +236,6 @@ namespace dye
     }
 
     auto inverse = hue::inverse;
-
-    // auto-generated code in what follows
 
     template<typename T> Colored<T> black(T t)                         { return Colored<T> (t, "k"); }
     template<typename T> Colored<T> blue(T t)                          { return Colored<T> (t, "b"); }
