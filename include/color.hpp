@@ -4,6 +4,7 @@
 #include <string>
 #include <windows.h>
 
+
 namespace hue
 {
     using string = std::string;
@@ -50,11 +51,7 @@ namespace hue
         {15, "bright white"}
     };
 
-
-    inline bool is_good(int c)
-    {
-        return 0 <= c && c < 256;
-    }
+    inline bool is_good(int c)  { return 0 <= c && c < 256; }
 
     // string to color
     int stoc(string a)
@@ -73,13 +70,11 @@ namespace hue
         return (CODES.find(a) != CODES.end()) ? CODES.at(a) : BAD_COLOR;
     }
 
-
     int stoc(string a, string b)
     {
         int c = stoc(a) + stoc(b) * 16;
         return is_good(c) ? c : BAD_COLOR;
     }
-
 
     string ctos(int c)
     {
@@ -96,15 +91,8 @@ namespace hue
                i.wAttributes : BAD_COLOR;
     }
 
-    int get_text()
-    {
-        return (get() != BAD_COLOR) ? get() % 16 : BAD_COLOR;
-    }
-
-    int get_background()
-    {
-        return (get() != BAD_COLOR) ? get() / 16 : BAD_COLOR;
-    }
+    int get_text()          { return (get() != BAD_COLOR) ? get() % 16 : BAD_COLOR; }
+    int get_background()    { return (get() != BAD_COLOR) ? get() / 16 : BAD_COLOR; }
 
     void set(int c)
     {
@@ -112,30 +100,11 @@ namespace hue
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);
     }
 
-    void set(int a, int b)
-    {
-        set(a + b * 16);
-    }
-
-    void set(string a, string b)
-    {
-        set(stoc(a) + stoc(b) * 16);
-    }
-
-    void set_text(string a)
-    {
-        set(stoc(a), get_background());
-    }
-
-    void set_background(string b)
-    {
-        set(get_text(), stoc(b));
-    }
-
-    void reset()
-    {
-        set(DEFAULT_COLOR);
-    }
+    void set(int a, int b)          { set(a + b * 16); }
+    void set(string a, string b)    { set(stoc(a) + stoc(b) * 16); }
+    void set_text(string a)         { set(stoc(a), get_background()); }
+    void set_background(string b)   { set(get_text(), stoc(b)); }
+    void reset()                    { set(DEFAULT_COLOR); }
 
     int inverse(int c)
     {
@@ -189,7 +158,6 @@ namespace dye
     using string = std::string;
     using ostream = std::ostream;
 
-
     template<typename T>
     class Colored
     {
@@ -207,7 +175,6 @@ namespace dye
         ostream & operator<< (ostream &, const Colored<U> &);
     };
 
-
     template<typename T>
     ostream & operator<< (ostream & os, const Colored<T> & colored)
     {
@@ -219,13 +186,10 @@ namespace dye
 
     template<typename T>
     Colored<T> colorize(T t, int c)              { return Colored<T>(t, c); }
-
     template<typename T>
     Colored<T> colorize(T t, int a, int b)       { return Colored<T>(t, a, b); }
-
     template<typename T>
     Colored<T> colorize(T t, string a)           { return Colored<T>(t, a); }
-
     template<typename T>
     Colored<T> colorize(T t, string a, string b) { return Colored<T>(t, a, b); }
 
@@ -249,7 +213,6 @@ namespace dye
     template<typename T> Colored<T> light_purple(T t) { return Colored<T> (t, "lp"); }
     template<typename T> Colored<T> light_yellow(T t) { return Colored<T> (t, "ly"); }
     template<typename T> Colored<T> bright_white(T t) { return Colored<T> (t, "bw"); }
-
     template<typename T> Colored<T> black_on_black(T t)                { return Colored<T> (t, "k", "k"); }
     template<typename T> Colored<T> black_on_blue(T t)                 { return Colored<T> (t, "k", "b"); }
     template<typename T> Colored<T> black_on_green(T t)                { return Colored<T> (t, "k", "g"); }
@@ -506,5 +469,4 @@ namespace dye
     template<typename T> Colored<T> bright_white_on_light_purple(T t)  { return Colored<T> (t, "bw", "lp"); }
     template<typename T> Colored<T> bright_white_on_light_yellow(T t)  { return Colored<T> (t, "bw", "ly"); }
     template<typename T> Colored<T> bright_white_on_bright_white(T t)  { return Colored<T> (t, "bw", "bw"); }
-
 }
