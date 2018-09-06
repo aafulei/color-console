@@ -13,22 +13,22 @@ namespace hue
     constexpr int BAD_COLOR = -256;
 
     const std::map<string, int> CODES = {
-        {"black",            0},    {"k",   0},
-        {"blue",             1},    {"b",   1},
-        {"green",            2},    {"g",   2},
-        {"aqua",             3},    {"a",   3},
-        {"red",              4},    {"r",   4},
-        {"purple",           5},    {"p",   5},
-        {"yellow",           6},    {"y",   6},
-        {"white",            7},    {"w",   7},
-        {"grey",             8},    {"e",   8},
-        {"light blue",       9},    {"lb",  9},
-        {"light green",     10},    {"lg", 10},
-        {"light aqua",      11},    {"la", 11},
-        {"light red",       12},    {"lr", 12},
-        {"light purple",    13},    {"lp", 13},
-        {"light yellow",    14},    {"ly", 14},
-        {"bright white",    15},    {"bw", 15}
+        {"black",            0}, {"k",   0},
+        {"blue",             1}, {"b",   1},
+        {"green",            2}, {"g",   2},
+        {"aqua",             3}, {"a",   3},
+        {"red",              4}, {"r",   4},
+        {"purple",           5}, {"p",   5},
+        {"yellow",           6}, {"y",   6},
+        {"white",            7}, {"w",   7},
+        {"grey",             8}, {"e",   8},
+        {"light blue",       9}, {"lb",  9},
+        {"light green",     10}, {"lg", 10},
+        {"light aqua",      11}, {"la", 11},
+        {"light red",       12}, {"lr", 12},
+        {"light purple",    13}, {"lp", 13},
+        {"light yellow",    14}, {"ly", 14},
+        {"bright white",    15}, {"bw", 15}
     };
 
     const std::map<int, string>  NAMES = {
@@ -145,23 +145,23 @@ namespace hue
             return BAD_COLOR;
     }
 
-    ostream & reset(ostream & os)           { reset();          return os; }
-    ostream & black(ostream & os)           { set_text("k");    return os; }
-    ostream & blue(ostream & os)            { set_text("b");    return os; }
-    ostream & green(ostream & os)           { set_text("g");    return os; }
-    ostream & aqua(ostream & os)            { set_text("a");    return os; }
-    ostream & red(ostream & os)             { set_text("r");    return os; }
-    ostream & purple(ostream & os)          { set_text("p");    return os; }
-    ostream & yellow(ostream & os)          { set_text("y");    return os; }
-    ostream & white(ostream & os)           { set_text("w");    return os; }
-    ostream & grey(ostream & os)            { set_text("e");    return os; }
-    ostream & light_blue(ostream & os)      { set_text("lb");   return os; }
-    ostream & light_green(ostream & os)     { set_text("lg");   return os; }
-    ostream & light_aqua(ostream & os)      { set_text("la");   return os; }
-    ostream & light_red(ostream & os)       { set_text("lr");   return os; }
-    ostream & light_purple(ostream & os)    { set_text("lp");   return os; }
-    ostream & light_yellow(ostream & os)    { set_text("ly");   return os; }
-    ostream & bright_white(ostream & os)    { set_text("bw");   return os; }
+    ostream & reset(ostream & os)           { reset();              return os; }
+    ostream & black(ostream & os)           { set_text("k");        return os; }
+    ostream & blue(ostream & os)            { set_text("b");        return os; }
+    ostream & green(ostream & os)           { set_text("g");        return os; }
+    ostream & aqua(ostream & os)            { set_text("a");        return os; }
+    ostream & red(ostream & os)             { set_text("r");        return os; }
+    ostream & purple(ostream & os)          { set_text("p");        return os; }
+    ostream & yellow(ostream & os)          { set_text("y");        return os; }
+    ostream & white(ostream & os)           { set_text("w");        return os; }
+    ostream & grey(ostream & os)            { set_text("e");        return os; }
+    ostream & light_blue(ostream & os)      { set_text("lb");       return os; }
+    ostream & light_green(ostream & os)     { set_text("lg");       return os; }
+    ostream & light_aqua(ostream & os)      { set_text("la");       return os; }
+    ostream & light_red(ostream & os)       { set_text("lr");       return os; }
+    ostream & light_purple(ostream & os)    { set_text("lp");       return os; }
+    ostream & light_yellow(ostream & os)    { set_text("ly");       return os; }
+    ostream & bright_white(ostream & os)    { set_text("bw");       return os; }
     ostream & on_black(ostream & os)        { set_background("k");  return os; }
     ostream & on_blue(ostream & os)         { set_background("b");  return os; }
     ostream & on_green(ostream & os)        { set_background("g");  return os; }
@@ -239,22 +239,22 @@ namespace dye
 
     // auto-generated code in what follows
 
-    template<typename T> Colored<T> black(T t)        { return Colored<T> (t, "k"); }
-    template<typename T> Colored<T> blue(T t)         { return Colored<T> (t, "b"); }
-    template<typename T> Colored<T> green(T t)        { return Colored<T> (t, "g"); }
-    template<typename T> Colored<T> aqua(T t)         { return Colored<T> (t, "a"); }
-    template<typename T> Colored<T> red(T t)          { return Colored<T> (t, "r"); }
-    template<typename T> Colored<T> purple(T t)       { return Colored<T> (t, "p"); }
-    template<typename T> Colored<T> yellow(T t)       { return Colored<T> (t, "y"); }
-    template<typename T> Colored<T> white(T t)        { return Colored<T> (t, "w"); }
-    template<typename T> Colored<T> grey(T t)         { return Colored<T> (t, "e"); }
-    template<typename T> Colored<T> light_blue(T t)   { return Colored<T> (t, "lb"); }
-    template<typename T> Colored<T> light_green(T t)  { return Colored<T> (t, "lg"); }
-    template<typename T> Colored<T> light_aqua(T t)   { return Colored<T> (t, "lq"); }
-    template<typename T> Colored<T> light_red(T t)    { return Colored<T> (t, "lr"); }
-    template<typename T> Colored<T> light_purple(T t) { return Colored<T> (t, "lp"); }
-    template<typename T> Colored<T> light_yellow(T t) { return Colored<T> (t, "ly"); }
-    template<typename T> Colored<T> bright_white(T t) { return Colored<T> (t, "bw"); }
+    template<typename T> Colored<T> black(T t)                         { return Colored<T> (t, "k"); }
+    template<typename T> Colored<T> blue(T t)                          { return Colored<T> (t, "b"); }
+    template<typename T> Colored<T> green(T t)                         { return Colored<T> (t, "g"); }
+    template<typename T> Colored<T> aqua(T t)                          { return Colored<T> (t, "a"); }
+    template<typename T> Colored<T> red(T t)                           { return Colored<T> (t, "r"); }
+    template<typename T> Colored<T> purple(T t)                        { return Colored<T> (t, "p"); }
+    template<typename T> Colored<T> yellow(T t)                        { return Colored<T> (t, "y"); }
+    template<typename T> Colored<T> white(T t)                         { return Colored<T> (t, "w"); }
+    template<typename T> Colored<T> grey(T t)                          { return Colored<T> (t, "e"); }
+    template<typename T> Colored<T> light_blue(T t)                    { return Colored<T> (t, "lb"); }
+    template<typename T> Colored<T> light_green(T t)                   { return Colored<T> (t, "lg"); }
+    template<typename T> Colored<T> light_aqua(T t)                    { return Colored<T> (t, "lq"); }
+    template<typename T> Colored<T> light_red(T t)                     { return Colored<T> (t, "lr"); }
+    template<typename T> Colored<T> light_purple(T t)                  { return Colored<T> (t, "lp"); }
+    template<typename T> Colored<T> light_yellow(T t)                  { return Colored<T> (t, "ly"); }
+    template<typename T> Colored<T> bright_white(T t)                  { return Colored<T> (t, "bw"); }
     template<typename T> Colored<T> black_on_black(T t)                { return Colored<T> (t, "k", "k"); }
     template<typename T> Colored<T> black_on_blue(T t)                 { return Colored<T> (t, "k", "b"); }
     template<typename T> Colored<T> black_on_green(T t)                { return Colored<T> (t, "k", "g"); }
