@@ -15,8 +15,9 @@ Put `color.hpp` in the folder where you include headers.
 int main()
 {
     std::cout << dye::aqua("Hello, World !") << std::endl;
-
     return 0;
 }
 ```
+
+You are seeing `Hello, World !` in aqua.
 
