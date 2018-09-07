@@ -4,7 +4,7 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 
 ## Installation
 
-Put [`color.hpp`](https://github.com/imfl/color-console/blob/master/include/color.hpp) in your headers' folder.
+Put [`color.hpp`](https://github.com/imfl/color-console/blob/master/include/color.hpp) in the folder where you include headers.
 
 ## How to Use?
 
