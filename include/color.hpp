@@ -74,10 +74,19 @@ namespace hue
         return (CODES.find(a) != CODES.end()) ? CODES.at(a) : BAD_COLOR;
     }
 
+    int itoc(int c)
+    {
+        return is_good(c) ? c : BAD_COLOR;
+    }
+
+    int itoc(int a, int b)
+    {
+        return itoc(a + b * 16);
+    }
+
     int stoc(string a, string b)
     {
-        int c = stoc(a) + stoc(b) * 16;
-        return is_good(c) ? c : BAD_COLOR;
+        return itoc(stoc(a), stoc(a));
     }
 
     string ctos(int c)
@@ -85,7 +94,7 @@ namespace hue
         return (0 <= c && c < 256) ?
                "(text) " + NAMES.at(c % 16) + " + " +
                "(background) " + NAMES.at(c / 16) :
-               "WRONG COLOR";
+               "BAD COLOR";
     }
 
     int get()
@@ -225,8 +234,8 @@ namespace dye
 
     public:
         colored(T t)                     :  thing(t), color(hue::get()) {}
-        colored(T t, int c)              :  thing(t), color(hue::is_good(c) ? c : hue::BAD_COLOR) {}
-        colored(T t, int a, int b)       :  colored(t, a + b * 16) {}
+        colored(T t, int a)              :  thing(t), color(hue::itoc(a)) {}
+        colored(T t, int a, int b)       :  thing(t), color(hue::itoc(a, b)) {}
         colored(T t, string a)           :  thing(t), color(hue::stoc(a)) {}
         colored(T t, string a, string b) :  thing(t), color(hue::stoc(a, b)) {}
 
