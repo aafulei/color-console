@@ -3,6 +3,7 @@
 #include <list>
 #include <map>
 #include <string>
+#include <utility>
 #include <windows.h>
 
 
@@ -86,7 +87,7 @@ namespace hue
 
     int stoc(string a, string b)
     {
-        return itoc(stoc(a), stoc(a));
+        return itoc(stoc(a), stoc(b));
     }
 
     string ctos(int c)
@@ -203,19 +204,49 @@ namespace dye
     template<typename T>
     class colorful : public std::list<colored<T>>
     {
+    public:
         using std::list<colored<T>>::list;
 
-    public:
-        colorful operator+(const colorful<T> rhs) const
+        colorful<T> & operator+=(const colorful<T> & rhs)
         {
-            colorful res(*this);
-            res.insert(res.end(), rhs.begin(), rhs.end());
-            return res;
+            this->insert(this->end(), rhs.begin(), rhs.end());
+            return *this;
         }
 
-        template<typename U>
-        friend ostream & operator<<(ostream & os, const colorful<U> & colorful);
+        colorful<T> & operator+=(colorful<T> && rhs)
+        {
+            this->splice(this->end(), std::move(rhs));
+            return *this;
+        }
     };
+
+    template<typename T>
+    colorful<T> operator+(const colorful<T> & lhs, const colorful<T> & rhs)
+    {
+        colorful<T> res(lhs);
+        return res += rhs;
+    }
+
+    template<typename T>
+    colorful<T> operator+(const colorful<T> & lhs, colorful<T> && rhs)
+    {
+        colorful<T> res(lhs);
+        return res += std::move(rhs);
+    }
+
+    template<typename T>
+    colorful<T> operator+(colorful<T> && lhs, const colorful<T> & rhs)
+    {
+        colorful<T> res(std::move(lhs));
+        return res += rhs;
+    }
+
+    template<typename T>
+    colorful<T> operator+(colorful<T> && lhs, colorful<T> && rhs)
+    {
+        colorful<T> res(std::move(lhs));
+        return res += std::move(rhs);
+    }
 
     template<typename T>
     ostream & operator<<(ostream & os, const colorful<T> & colorful)
@@ -224,7 +255,6 @@ namespace dye
              os << elem;
          return os;
     }
-
 
     template<typename T>
     class colored
@@ -242,7 +272,6 @@ namespace dye
         template<typename U> friend class colorful;
         template<typename U> friend ostream & operator<<(ostream & os, const colored<U> & at);
     };
-
 
     template<typename T>
     ostream & operator<<(ostream & os, const colored<T> & at)
