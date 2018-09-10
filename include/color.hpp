@@ -10,13 +10,10 @@
 
 namespace hue
 {
-    using ostream = std::ostream;
-    using string = std::string;
-
     constexpr int DEFAULT_COLOR = 7;
     constexpr int BAD_COLOR = -256;
 
-    const std::map<string, int> CODES = {
+    const std::map<std::string, int> CODES = {
         {"black",            0}, {"k",   0},
         {"blue",             1}, {"b",   1},
         {"green",            2}, {"g",   2},
@@ -35,7 +32,7 @@ namespace hue
         {"bright white",    15}, {"bw", 15}
     };
 
-    const std::map<int, string>  NAMES = {
+    const std::map<int, std::string> NAMES = {
         { 0, "black"},
         { 1, "blue"},
         { 2, "green"},
@@ -59,8 +56,18 @@ namespace hue
         return 0 <= c && c < 256;
     }
 
-    // string to color
-    int stoc(string a)
+    inline int itoc(int c)
+    {
+        return is_good(c) ? c : BAD_COLOR;
+    }
+
+    inline int itoc(int a, int b)
+    {
+        return itoc(a + b * 16);
+    }
+
+    // std::string to color
+    int stoc(std::string a)
     {
         // convert s to lowercase, and format variants like  "light_blue"
         std::transform(a.begin(), a.end(), a.begin(), [](char c)
@@ -76,22 +83,12 @@ namespace hue
         return (CODES.find(a) != CODES.end()) ? CODES.at(a) : BAD_COLOR;
     }
 
-    int itoc(int c)
-    {
-        return is_good(c) ? c : BAD_COLOR;
-    }
-
-    int itoc(int a, int b)
-    {
-        return itoc(a + b * 16);
-    }
-
-    int stoc(string a, string b)
+    int stoc(std::string a, std::string b)
     {
         return itoc(stoc(a), stoc(b));
     }
 
-    string ctos(int c)
+    std::string ctos(int c)
     {
         return (0 <= c && c < 256) ?
                "(text) " + NAMES.at(c % 16) + " + " +
@@ -127,17 +124,17 @@ namespace hue
         set(a + b * 16);
     }
 
-    void set(string a, string b)
+    void set(std::string a, std::string b)
     {
         set(stoc(a) + stoc(b) * 16);
     }
 
-    void set_text(string a)
+    void set_text(std::string a)
     {
         set(stoc(a), get_background());
     }
 
-    void set_background(string b)
+    void set_background(std::string b)
     {
         set(get_text(), stoc(b));
     }
@@ -158,55 +155,55 @@ namespace hue
             return BAD_COLOR;
     }
 
-    ostream & reset(ostream & os)           { reset();              return os; }
-    ostream & black(ostream & os)           { set_text("k");        return os; }
-    ostream & blue(ostream & os)            { set_text("b");        return os; }
-    ostream & green(ostream & os)           { set_text("g");        return os; }
-    ostream & aqua(ostream & os)            { set_text("a");        return os; }
-    ostream & red(ostream & os)             { set_text("r");        return os; }
-    ostream & purple(ostream & os)          { set_text("p");        return os; }
-    ostream & yellow(ostream & os)          { set_text("y");        return os; }
-    ostream & white(ostream & os)           { set_text("w");        return os; }
-    ostream & grey(ostream & os)            { set_text("e");        return os; }
-    ostream & light_blue(ostream & os)      { set_text("lb");       return os; }
-    ostream & light_green(ostream & os)     { set_text("lg");       return os; }
-    ostream & light_aqua(ostream & os)      { set_text("la");       return os; }
-    ostream & light_red(ostream & os)       { set_text("lr");       return os; }
-    ostream & light_purple(ostream & os)    { set_text("lp");       return os; }
-    ostream & light_yellow(ostream & os)    { set_text("ly");       return os; }
-    ostream & bright_white(ostream & os)    { set_text("bw");       return os; }
-    ostream & on_black(ostream & os)        { set_background("k");  return os; }
-    ostream & on_blue(ostream & os)         { set_background("b");  return os; }
-    ostream & on_green(ostream & os)        { set_background("g");  return os; }
-    ostream & on_aqua(ostream & os)         { set_background("a");  return os; }
-    ostream & on_red(ostream & os)          { set_background("r");  return os; }
-    ostream & on_purple(ostream & os)       { set_background("p");  return os; }
-    ostream & on_yellow(ostream & os)       { set_background("y");  return os; }
-    ostream & on_white(ostream & os)        { set_background("w");  return os; }
-    ostream & on_grey(ostream & os)         { set_background("e");  return os; }
-    ostream & on_light_blue(ostream & os)   { set_background("lb"); return os; }
-    ostream & on_light_green(ostream & os)  { set_background("lg"); return os; }
-    ostream & on_light_aqua(ostream & os)   { set_background("la"); return os; }
-    ostream & on_light_red(ostream & os)    { set_background("lr"); return os; }
-    ostream & on_light_purple(ostream & os) { set_background("lp"); return os; }
-    ostream & on_light_yellow(ostream & os) { set_background("ly"); return os; }
-    ostream & on_bright_white(ostream & os) { set_background("bw"); return os; }
+    std::ostream & reset(std::ostream & os)           { reset();              return os; }
+    std::ostream & black(std::ostream & os)           { set_text("k");        return os; }
+    std::ostream & blue(std::ostream & os)            { set_text("b");        return os; }
+    std::ostream & green(std::ostream & os)           { set_text("g");        return os; }
+    std::ostream & aqua(std::ostream & os)            { set_text("a");        return os; }
+    std::ostream & red(std::ostream & os)             { set_text("r");        return os; }
+    std::ostream & purple(std::ostream & os)          { set_text("p");        return os; }
+    std::ostream & yellow(std::ostream & os)          { set_text("y");        return os; }
+    std::ostream & white(std::ostream & os)           { set_text("w");        return os; }
+    std::ostream & grey(std::ostream & os)            { set_text("e");        return os; }
+    std::ostream & light_blue(std::ostream & os)      { set_text("lb");       return os; }
+    std::ostream & light_green(std::ostream & os)     { set_text("lg");       return os; }
+    std::ostream & light_aqua(std::ostream & os)      { set_text("la");       return os; }
+    std::ostream & light_red(std::ostream & os)       { set_text("lr");       return os; }
+    std::ostream & light_purple(std::ostream & os)    { set_text("lp");       return os; }
+    std::ostream & light_yellow(std::ostream & os)    { set_text("ly");       return os; }
+    std::ostream & bright_white(std::ostream & os)    { set_text("bw");       return os; }
+    std::ostream & on_black(std::ostream & os)        { set_background("k");  return os; }
+    std::ostream & on_blue(std::ostream & os)         { set_background("b");  return os; }
+    std::ostream & on_green(std::ostream & os)        { set_background("g");  return os; }
+    std::ostream & on_aqua(std::ostream & os)         { set_background("a");  return os; }
+    std::ostream & on_red(std::ostream & os)          { set_background("r");  return os; }
+    std::ostream & on_purple(std::ostream & os)       { set_background("p");  return os; }
+    std::ostream & on_yellow(std::ostream & os)       { set_background("y");  return os; }
+    std::ostream & on_white(std::ostream & os)        { set_background("w");  return os; }
+    std::ostream & on_grey(std::ostream & os)         { set_background("e");  return os; }
+    std::ostream & on_light_blue(std::ostream & os)   { set_background("lb"); return os; }
+    std::ostream & on_light_green(std::ostream & os)  { set_background("lg"); return os; }
+    std::ostream & on_light_aqua(std::ostream & os)   { set_background("la"); return os; }
+    std::ostream & on_light_red(std::ostream & os)    { set_background("lr"); return os; }
+    std::ostream & on_light_purple(std::ostream & os) { set_background("lp"); return os; }
+    std::ostream & on_light_yellow(std::ostream & os) { set_background("ly"); return os; }
+    std::ostream & on_bright_white(std::ostream & os) { set_background("bw"); return os; }
 }
 
 
 namespace dye
 {
-    using ostream = std::ostream;
-    using string = std::string;
+    template<typename T>
+    using bar = typename std::conditional<std::is_same<T, const char *>::value, std::string, T>::type;
 
-    template<typename T> class colored;
     template<typename T> class colorful;
+    template<typename T> class item;
 
     template<typename T>
-    class colorful : public std::list<colored<T>>
+    class colorful : private std::list<item<T>>
     {
     public:
-        using std::list<colored<T>>::list;
+        using std::list<item<T>>::list;
 
         colorful<T> & operator+=(const colorful<T> & rhs)
         {
@@ -219,38 +216,62 @@ namespace dye
             this->splice(this->end(), std::move(rhs));
             return *this;
         }
+
+        colorful<T> & operator+=(T t)
+        {
+            this.push_back(std::move(t));
+            return *this;
+        }
+
+        void push_front(T t)
+        {
+            this->std::list<item<T>>::push_front(item<T>(std::move(t)));
+        }
+
+        void push_back(T t)
+        {
+            this->std::list<item<T>>::push_back(item<T>(std::move(t)));
+        }
+
+        colorful<T> & inverse()
+        {
+            for (auto & elem : *this)
+                elem.inverse();
+            return *this;
+        }
+
+        template<typename U>
+        friend std::ostream & operator<<(std::ostream &, const colorful<U> &);
+
+        template<typename U>
+        friend colorful<U> inverse(colorful<U> col);
     };
 
     template<typename T>
-    colorful<T> operator+(const colorful<T> & lhs, const colorful<T> & rhs)
-    {
-        colorful<T> res(lhs);
-        return res += rhs;
-    }
-
-    template<typename T>
-    colorful<T> operator+(const colorful<T> & lhs, colorful<T> && rhs)
-    {
-        colorful<T> res(lhs);
-        return res += std::move(rhs);
-    }
-
-    template<typename T>
-    colorful<T> operator+(colorful<T> && lhs, const colorful<T> & rhs)
+    colorful<T> operator+(colorful<T> lhs, colorful<T> rhs)
     {
         colorful<T> res(std::move(lhs));
         return res += rhs;
     }
 
     template<typename T>
-    colorful<T> operator+(colorful<T> && lhs, colorful<T> && rhs)
+    colorful<T> operator+(colorful<T> lhs, std::string rhs)
     {
         colorful<T> res(std::move(lhs));
-        return res += std::move(rhs);
+        res.push_back(std::move(rhs));
+        return res;
     }
 
     template<typename T>
-    ostream & operator<<(ostream & os, const colorful<T> & colorful)
+    colorful<T> operator+(const std::string & lhs, colorful<T> rhs)
+    {
+        colorful<T> res(std::move(rhs));
+        res.push_front(std::move(lhs));
+        return res;
+    }
+
+    template<typename T>
+    std::ostream & operator<<(std::ostream & os, const colorful<T> & colorful)
     {
          for (const auto & elem : colorful)
              os << elem;
@@ -258,37 +279,51 @@ namespace dye
     }
 
     template<typename T>
-    class colored
+    colorful<T> inverse(colorful<T> col)
+    {
+        colorful<T> res(std::move(col));
+        for (auto & elem : res)
+            elem.inverse();
+        return res;
+    }
+
+    template<typename T>
+    class item
     {
         T thing;
         int color;
 
     public:
-        colored(T t)                     :  thing(t), color(hue::get()) {}
-        colored(T t, int a)              :  thing(t), color(hue::itoc(a)) {}
-        colored(T t, int a, int b)       :  thing(t), color(hue::itoc(a, b)) {}
-        colored(T t, string a)           :  thing(t), color(hue::stoc(a)) {}
-        colored(T t, string a, string b) :  thing(t), color(hue::stoc(a, b)) {}
+        item(T t)                               :  thing(std::move(t)), color(hue::get())       {}
+        item(T t, int a)                        :  thing(std::move(t)), color(hue::itoc(a))     {}
+        item(T t, int a, int b)                 :  thing(std::move(t)), color(hue::itoc(a, b))  {}
+        item(T t, std::string a)                :  thing(std::move(t)), color(hue::stoc(a))     {}
+        item(T t, std::string a, std::string b) :  thing(std::move(t)), color(hue::stoc(a, b))  {}
 
-        template<typename U> friend class colorful;
-        template<typename U> friend ostream & operator<<(ostream & os, const colored<U> & at);
+        item<T> & inverse()
+        {
+            color = hue::inverse(color);
+            return *this;
+        }
+
+        template<typename U>
+        friend class colorful;
+
+        template<typename U>
+        friend std::ostream & operator<<(std::ostream &, const item<U> &);
     };
 
     template<typename T>
-    ostream & operator<<(ostream & os, const colored<T> & at)
+    std::ostream & operator<<(std::ostream & os, const item<T> & it)
     {
-        hue::set(at.color);
-        os << at.thing;
+        hue::set(it.color);
+        os << it.thing;
         hue::reset();
         return os;
     }
 
-    auto inverse = hue::inverse;
-
-    template<typename T>
-    using bar = typename std::conditional<std::is_same<T, const char *>::value, string, T>::type;
     template<typename T> using R = colorful<bar<T>>;
-    template<typename T> using S = colored<bar<T>>;
+    template<typename T> using S = item<bar<T>>;
 
     template<typename T> R<T> nothing(T t)                      { return R<T> { S<T>(t) }; }
     template<typename T> R<T> black(T t)                        { return R<T> { S<T>(t, "k") }; }
