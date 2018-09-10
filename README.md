@@ -21,6 +21,8 @@ int main()
 
 You are seeing `Hello, World!` in aqua.
 
+<img src="image/hello.png" width="200"/> 
+
 ## More Examples
 
 Consider a marker that takes in a `std::string` and marks the keywords and numbers with the given `color`.
@@ -59,7 +61,7 @@ cout << endl << tech_news_marked << endl;
 
 Then we have
 
-![](image/tech_news_marked.png)
+<img src="image/tech_news_marked.png" width="600"/> 
 
 As another example which we mark both keywords and numbers
 
@@ -70,7 +72,7 @@ cout << endl << stock_news_marked << endl;
 
 We are having
 
-![](image/stock_news_marked.png)
+<img src="image/stock_news_marked.png" width="600"/> 
 
 ## Why Use it?
 
