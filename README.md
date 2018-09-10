@@ -4,7 +4,7 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 
 ## Installation
 
-Put [`color.hpp`](https://github.com/imfl/color-console/blob/master/include/color.hpp) in the folder where you include headers.
+Put [`color.hpp`](include/color.hpp) in the folder where you include headers.
 
 ## How to Use?
 
@@ -14,12 +14,9 @@ Put [`color.hpp`](https://github.com/imfl/color-console/blob/master/include/colo
 
 int main()
 {
-    std::cout << dye::aqua("Hello, World !") << std::endl;
+    std::cout << dye::aqua("Hello, World!") << std::endl;
     return 0;
 }
 ```
 
-You are seeing `Hello, World !` in aqua.
-
-
-
+You are seeing `Hello, World!` in aqua.
