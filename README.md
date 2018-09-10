@@ -71,3 +71,8 @@ cout << endl << stock_news_marked << endl;
 We are having
 
 ![](image\stock_news_marked.png)
+
+## Why Use it?
+
+
+
