@@ -7,7 +7,6 @@
 #include <utility>
 #include <windows.h>
 
-
 namespace hue
 {
     constexpr int DEFAULT_COLOR = 7;
@@ -219,7 +218,7 @@ namespace dye
 
         colorful<T> & operator+=(T t)
         {
-            this.push_back(std::move(t));
+            this->push_back(std::move(t));
             return *this;
         }
 
@@ -342,6 +341,22 @@ namespace dye
     template<typename T> R<T> light_purple(T t)                 { return R<T> { S<T>(t, "lp") }; }
     template<typename T> R<T> light_yellow(T t)                 { return R<T> { S<T>(t, "ly") }; }
     template<typename T> R<T> bright_white(T t)                 { return R<T> { S<T>(t, "bw") }; }
+    template<typename T> R<T> on_black(T t)                     { return R<T> { S<T>(t, "k", "k") }; }
+    template<typename T> R<T> on_blue(T t)                      { return R<T> { S<T>(t, "k", "b") }; }
+    template<typename T> R<T> on_green(T t)                     { return R<T> { S<T>(t, "k", "g") }; }
+    template<typename T> R<T> on_aqua(T t)                      { return R<T> { S<T>(t, "k", "a") }; }
+    template<typename T> R<T> on_red(T t)                       { return R<T> { S<T>(t, "k", "r") }; }
+    template<typename T> R<T> on_purple(T t)                    { return R<T> { S<T>(t, "k", "p") }; }
+    template<typename T> R<T> on_yellow(T t)                    { return R<T> { S<T>(t, "k", "y") }; }
+    template<typename T> R<T> on_white(T t)                     { return R<T> { S<T>(t, "k", "w") }; }
+    template<typename T> R<T> on_grey(T t)                      { return R<T> { S<T>(t, "k", "e") }; }
+    template<typename T> R<T> on_light_blue(T t)                { return R<T> { S<T>(t, "k", "lb") }; }
+    template<typename T> R<T> on_light_green(T t)               { return R<T> { S<T>(t, "k", "lg") }; }
+    template<typename T> R<T> on_light_aqua(T t)                { return R<T> { S<T>(t, "k", "lq") }; }
+    template<typename T> R<T> on_light_red(T t)                 { return R<T> { S<T>(t, "k", "lr") }; }
+    template<typename T> R<T> on_light_purple(T t)              { return R<T> { S<T>(t, "k", "lp") }; }
+    template<typename T> R<T> on_light_yellow(T t)              { return R<T> { S<T>(t, "k", "ly") }; }
+    template<typename T> R<T> on_bright_white(T t)              { return R<T> { S<T>(t, "k", "bw") }; }
     template<typename T> R<T> black_on_black(T t)               { return R<T> { S<T>(t, "k", "k") }; }
     template<typename T> R<T> black_on_blue(T t)                { return R<T> { S<T>(t, "k", "b") }; }
     template<typename T> R<T> black_on_green(T t)               { return R<T> { S<T>(t, "k", "g") }; }
