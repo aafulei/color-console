@@ -2,6 +2,8 @@
 
 A lightweight header-only C++ library to bring colors to your Windows console with a very-easy-to-use API that frees you from the burden of setting and resetting with colors every time you make a call.
 
+<img src="image/tech_news_marked.png" width="600"/>
+
 ## Installation
 
 Put [`color.hpp`](include/color.hpp) in the folder where you include headers.
