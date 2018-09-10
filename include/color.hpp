@@ -324,7 +324,8 @@ namespace dye
     template<typename T> using R = colorful<bar<T>>;
     template<typename T> using S = item<bar<T>>;
 
-    template<typename T> R<T> nothing(T t)                      { return R<T> { S<T>(t) }; }
+    template<typename T> R<T> colorize(T t, std::string a)      { return R<T> { S<T>(t, a) };   }
+    template<typename T> R<T> vanilla(T t)                      { return R<T> { S<T>(t) }; }
     template<typename T> R<T> black(T t)                        { return R<T> { S<T>(t, "k") }; }
     template<typename T> R<T> blue(T t)                         { return R<T> { S<T>(t, "b") }; }
     template<typename T> R<T> green(T t)                        { return R<T> { S<T>(t, "g") }; }
@@ -336,7 +337,7 @@ namespace dye
     template<typename T> R<T> grey(T t)                         { return R<T> { S<T>(t, "e") }; }
     template<typename T> R<T> light_blue(T t)                   { return R<T> { S<T>(t, "lb") }; }
     template<typename T> R<T> light_green(T t)                  { return R<T> { S<T>(t, "lg") }; }
-    template<typename T> R<T> light_aqua(T t)                   { return R<T> { S<T>(t, "lq") }; }
+    template<typename T> R<T> light_aqua(T t)                   { return R<T> { S<T>(t, "la") }; }
     template<typename T> R<T> light_red(T t)                    { return R<T> { S<T>(t, "lr") }; }
     template<typename T> R<T> light_purple(T t)                 { return R<T> { S<T>(t, "lp") }; }
     template<typename T> R<T> light_yellow(T t)                 { return R<T> { S<T>(t, "ly") }; }
@@ -352,7 +353,7 @@ namespace dye
     template<typename T> R<T> on_grey(T t)                      { return R<T> { S<T>(t, "k", "e") }; }
     template<typename T> R<T> on_light_blue(T t)                { return R<T> { S<T>(t, "k", "lb") }; }
     template<typename T> R<T> on_light_green(T t)               { return R<T> { S<T>(t, "k", "lg") }; }
-    template<typename T> R<T> on_light_aqua(T t)                { return R<T> { S<T>(t, "k", "lq") }; }
+    template<typename T> R<T> on_light_aqua(T t)                { return R<T> { S<T>(t, "k", "la") }; }
     template<typename T> R<T> on_light_red(T t)                 { return R<T> { S<T>(t, "k", "lr") }; }
     template<typename T> R<T> on_light_purple(T t)              { return R<T> { S<T>(t, "k", "lp") }; }
     template<typename T> R<T> on_light_yellow(T t)              { return R<T> { S<T>(t, "k", "ly") }; }
@@ -368,7 +369,7 @@ namespace dye
     template<typename T> R<T> black_on_grey(T t)                { return R<T> { S<T>(t, "k", "e") }; }
     template<typename T> R<T> black_on_light_blue(T t)          { return R<T> { S<T>(t, "k", "lb") }; }
     template<typename T> R<T> black_on_light_green(T t)         { return R<T> { S<T>(t, "k", "lg") }; }
-    template<typename T> R<T> black_on_light_aqua(T t)          { return R<T> { S<T>(t, "k", "lq") }; }
+    template<typename T> R<T> black_on_light_aqua(T t)          { return R<T> { S<T>(t, "k", "la") }; }
     template<typename T> R<T> black_on_light_red(T t)           { return R<T> { S<T>(t, "k", "lr") }; }
     template<typename T> R<T> black_on_light_purple(T t)        { return R<T> { S<T>(t, "k", "lp") }; }
     template<typename T> R<T> black_on_light_yellow(T t)        { return R<T> { S<T>(t, "k", "ly") }; }
@@ -384,7 +385,7 @@ namespace dye
     template<typename T> R<T> blue_on_grey(T t)                 { return R<T> { S<T>(t, "b", "e") }; }
     template<typename T> R<T> blue_on_light_blue(T t)           { return R<T> { S<T>(t, "b", "lb") }; }
     template<typename T> R<T> blue_on_light_green(T t)          { return R<T> { S<T>(t, "b", "lg") }; }
-    template<typename T> R<T> blue_on_light_aqua(T t)           { return R<T> { S<T>(t, "b", "lq") }; }
+    template<typename T> R<T> blue_on_light_aqua(T t)           { return R<T> { S<T>(t, "b", "la") }; }
     template<typename T> R<T> blue_on_light_red(T t)            { return R<T> { S<T>(t, "b", "lr") }; }
     template<typename T> R<T> blue_on_light_purple(T t)         { return R<T> { S<T>(t, "b", "lp") }; }
     template<typename T> R<T> blue_on_light_yellow(T t)         { return R<T> { S<T>(t, "b", "ly") }; }
@@ -400,7 +401,7 @@ namespace dye
     template<typename T> R<T> green_on_grey(T t)                { return R<T> { S<T>(t, "g", "e") }; }
     template<typename T> R<T> green_on_light_blue(T t)          { return R<T> { S<T>(t, "g", "lb") }; }
     template<typename T> R<T> green_on_light_green(T t)         { return R<T> { S<T>(t, "g", "lg") }; }
-    template<typename T> R<T> green_on_light_aqua(T t)          { return R<T> { S<T>(t, "g", "lq") }; }
+    template<typename T> R<T> green_on_light_aqua(T t)          { return R<T> { S<T>(t, "g", "la") }; }
     template<typename T> R<T> green_on_light_red(T t)           { return R<T> { S<T>(t, "g", "lr") }; }
     template<typename T> R<T> green_on_light_purple(T t)        { return R<T> { S<T>(t, "g", "lp") }; }
     template<typename T> R<T> green_on_light_yellow(T t)        { return R<T> { S<T>(t, "g", "ly") }; }
@@ -416,7 +417,7 @@ namespace dye
     template<typename T> R<T> aqua_on_grey(T t)                 { return R<T> { S<T>(t, "a", "e") }; }
     template<typename T> R<T> aqua_on_light_blue(T t)           { return R<T> { S<T>(t, "a", "lb") }; }
     template<typename T> R<T> aqua_on_light_green(T t)          { return R<T> { S<T>(t, "a", "lg") }; }
-    template<typename T> R<T> aqua_on_light_aqua(T t)           { return R<T> { S<T>(t, "a", "lq") }; }
+    template<typename T> R<T> aqua_on_light_aqua(T t)           { return R<T> { S<T>(t, "a", "la") }; }
     template<typename T> R<T> aqua_on_light_red(T t)            { return R<T> { S<T>(t, "a", "lr") }; }
     template<typename T> R<T> aqua_on_light_purple(T t)         { return R<T> { S<T>(t, "a", "lp") }; }
     template<typename T> R<T> aqua_on_light_yellow(T t)         { return R<T> { S<T>(t, "a", "ly") }; }
@@ -432,7 +433,7 @@ namespace dye
     template<typename T> R<T> red_on_grey(T t)                  { return R<T> { S<T>(t, "r", "e") }; }
     template<typename T> R<T> red_on_light_blue(T t)            { return R<T> { S<T>(t, "r", "lb") }; }
     template<typename T> R<T> red_on_light_green(T t)           { return R<T> { S<T>(t, "r", "lg") }; }
-    template<typename T> R<T> red_on_light_aqua(T t)            { return R<T> { S<T>(t, "r", "lq") }; }
+    template<typename T> R<T> red_on_light_aqua(T t)            { return R<T> { S<T>(t, "r", "la") }; }
     template<typename T> R<T> red_on_light_red(T t)             { return R<T> { S<T>(t, "r", "lr") }; }
     template<typename T> R<T> red_on_light_purple(T t)          { return R<T> { S<T>(t, "r", "lp") }; }
     template<typename T> R<T> red_on_light_yellow(T t)          { return R<T> { S<T>(t, "r", "ly") }; }
@@ -448,7 +449,7 @@ namespace dye
     template<typename T> R<T> purple_on_grey(T t)               { return R<T> { S<T>(t, "p", "e") }; }
     template<typename T> R<T> purple_on_light_blue(T t)         { return R<T> { S<T>(t, "p", "lb") }; }
     template<typename T> R<T> purple_on_light_green(T t)        { return R<T> { S<T>(t, "p", "lg") }; }
-    template<typename T> R<T> purple_on_light_aqua(T t)         { return R<T> { S<T>(t, "p", "lq") }; }
+    template<typename T> R<T> purple_on_light_aqua(T t)         { return R<T> { S<T>(t, "p", "la") }; }
     template<typename T> R<T> purple_on_light_red(T t)          { return R<T> { S<T>(t, "p", "lr") }; }
     template<typename T> R<T> purple_on_light_purple(T t)       { return R<T> { S<T>(t, "p", "lp") }; }
     template<typename T> R<T> purple_on_light_yellow(T t)       { return R<T> { S<T>(t, "p", "ly") }; }
@@ -464,7 +465,7 @@ namespace dye
     template<typename T> R<T> yellow_on_grey(T t)               { return R<T> { S<T>(t, "y", "e") }; }
     template<typename T> R<T> yellow_on_light_blue(T t)         { return R<T> { S<T>(t, "y", "lb") }; }
     template<typename T> R<T> yellow_on_light_green(T t)        { return R<T> { S<T>(t, "y", "lg") }; }
-    template<typename T> R<T> yellow_on_light_aqua(T t)         { return R<T> { S<T>(t, "y", "lq") }; }
+    template<typename T> R<T> yellow_on_light_aqua(T t)         { return R<T> { S<T>(t, "y", "la") }; }
     template<typename T> R<T> yellow_on_light_red(T t)          { return R<T> { S<T>(t, "y", "lr") }; }
     template<typename T> R<T> yellow_on_light_purple(T t)       { return R<T> { S<T>(t, "y", "lp") }; }
     template<typename T> R<T> yellow_on_light_yellow(T t)       { return R<T> { S<T>(t, "y", "ly") }; }
@@ -480,7 +481,7 @@ namespace dye
     template<typename T> R<T> white_on_grey(T t)                { return R<T> { S<T>(t, "w", "e") }; }
     template<typename T> R<T> white_on_light_blue(T t)          { return R<T> { S<T>(t, "w", "lb") }; }
     template<typename T> R<T> white_on_light_green(T t)         { return R<T> { S<T>(t, "w", "lg") }; }
-    template<typename T> R<T> white_on_light_aqua(T t)          { return R<T> { S<T>(t, "w", "lq") }; }
+    template<typename T> R<T> white_on_light_aqua(T t)          { return R<T> { S<T>(t, "w", "la") }; }
     template<typename T> R<T> white_on_light_red(T t)           { return R<T> { S<T>(t, "w", "lr") }; }
     template<typename T> R<T> white_on_light_purple(T t)        { return R<T> { S<T>(t, "w", "lp") }; }
     template<typename T> R<T> white_on_light_yellow(T t)        { return R<T> { S<T>(t, "w", "ly") }; }
@@ -496,7 +497,7 @@ namespace dye
     template<typename T> R<T> grey_on_grey(T t)                 { return R<T> { S<T>(t, "e", "e") }; }
     template<typename T> R<T> grey_on_light_blue(T t)           { return R<T> { S<T>(t, "e", "lb") }; }
     template<typename T> R<T> grey_on_light_green(T t)          { return R<T> { S<T>(t, "e", "lg") }; }
-    template<typename T> R<T> grey_on_light_aqua(T t)           { return R<T> { S<T>(t, "e", "lq") }; }
+    template<typename T> R<T> grey_on_light_aqua(T t)           { return R<T> { S<T>(t, "e", "la") }; }
     template<typename T> R<T> grey_on_light_red(T t)            { return R<T> { S<T>(t, "e", "lr") }; }
     template<typename T> R<T> grey_on_light_purple(T t)         { return R<T> { S<T>(t, "e", "lp") }; }
     template<typename T> R<T> grey_on_light_yellow(T t)         { return R<T> { S<T>(t, "e", "ly") }; }
@@ -512,7 +513,7 @@ namespace dye
     template<typename T> R<T> light_blue_on_grey(T t)           { return R<T> { S<T>(t, "lb", "e") }; }
     template<typename T> R<T> light_blue_on_light_blue(T t)     { return R<T> { S<T>(t, "lb", "lb") }; }
     template<typename T> R<T> light_blue_on_light_green(T t)    { return R<T> { S<T>(t, "lb", "lg") }; }
-    template<typename T> R<T> light_blue_on_light_aqua(T t)     { return R<T> { S<T>(t, "lb", "lq") }; }
+    template<typename T> R<T> light_blue_on_light_aqua(T t)     { return R<T> { S<T>(t, "lb", "la") }; }
     template<typename T> R<T> light_blue_on_light_red(T t)      { return R<T> { S<T>(t, "lb", "lr") }; }
     template<typename T> R<T> light_blue_on_light_purple(T t)   { return R<T> { S<T>(t, "lb", "lp") }; }
     template<typename T> R<T> light_blue_on_light_yellow(T t)   { return R<T> { S<T>(t, "lb", "ly") }; }
@@ -528,27 +529,27 @@ namespace dye
     template<typename T> R<T> light_green_on_grey(T t)          { return R<T> { S<T>(t, "lg", "e") }; }
     template<typename T> R<T> light_green_on_light_blue(T t)    { return R<T> { S<T>(t, "lg", "lb") }; }
     template<typename T> R<T> light_green_on_light_green(T t)   { return R<T> { S<T>(t, "lg", "lg") }; }
-    template<typename T> R<T> light_green_on_light_aqua(T t)    { return R<T> { S<T>(t, "lg", "lq") }; }
+    template<typename T> R<T> light_green_on_light_aqua(T t)    { return R<T> { S<T>(t, "lg", "la") }; }
     template<typename T> R<T> light_green_on_light_red(T t)     { return R<T> { S<T>(t, "lg", "lr") }; }
     template<typename T> R<T> light_green_on_light_purple(T t)  { return R<T> { S<T>(t, "lg", "lp") }; }
     template<typename T> R<T> light_green_on_light_yellow(T t)  { return R<T> { S<T>(t, "lg", "ly") }; }
     template<typename T> R<T> light_green_on_bright_white(T t)  { return R<T> { S<T>(t, "lg", "bw") }; }
-    template<typename T> R<T> light_aqua_on_black(T t)          { return R<T> { S<T>(t, "lq", "k") }; }
-    template<typename T> R<T> light_aqua_on_blue(T t)           { return R<T> { S<T>(t, "lq", "b") }; }
-    template<typename T> R<T> light_aqua_on_green(T t)          { return R<T> { S<T>(t, "lq", "g") }; }
-    template<typename T> R<T> light_aqua_on_aqua(T t)           { return R<T> { S<T>(t, "lq", "a") }; }
-    template<typename T> R<T> light_aqua_on_red(T t)            { return R<T> { S<T>(t, "lq", "r") }; }
-    template<typename T> R<T> light_aqua_on_purple(T t)         { return R<T> { S<T>(t, "lq", "p") }; }
-    template<typename T> R<T> light_aqua_on_yellow(T t)         { return R<T> { S<T>(t, "lq", "y") }; }
-    template<typename T> R<T> light_aqua_on_white(T t)          { return R<T> { S<T>(t, "lq", "w") }; }
-    template<typename T> R<T> light_aqua_on_grey(T t)           { return R<T> { S<T>(t, "lq", "e") }; }
-    template<typename T> R<T> light_aqua_on_light_blue(T t)     { return R<T> { S<T>(t, "lq", "lb") }; }
-    template<typename T> R<T> light_aqua_on_light_green(T t)    { return R<T> { S<T>(t, "lq", "lg") }; }
-    template<typename T> R<T> light_aqua_on_light_aqua(T t)     { return R<T> { S<T>(t, "lq", "lq") }; }
-    template<typename T> R<T> light_aqua_on_light_red(T t)      { return R<T> { S<T>(t, "lq", "lr") }; }
-    template<typename T> R<T> light_aqua_on_light_purple(T t)   { return R<T> { S<T>(t, "lq", "lp") }; }
-    template<typename T> R<T> light_aqua_on_light_yellow(T t)   { return R<T> { S<T>(t, "lq", "ly") }; }
-    template<typename T> R<T> light_aqua_on_bright_white(T t)   { return R<T> { S<T>(t, "lq", "bw") }; }
+    template<typename T> R<T> light_aqua_on_black(T t)          { return R<T> { S<T>(t, "la", "k") }; }
+    template<typename T> R<T> light_aqua_on_blue(T t)           { return R<T> { S<T>(t, "la", "b") }; }
+    template<typename T> R<T> light_aqua_on_green(T t)          { return R<T> { S<T>(t, "la", "g") }; }
+    template<typename T> R<T> light_aqua_on_aqua(T t)           { return R<T> { S<T>(t, "la", "a") }; }
+    template<typename T> R<T> light_aqua_on_red(T t)            { return R<T> { S<T>(t, "la", "r") }; }
+    template<typename T> R<T> light_aqua_on_purple(T t)         { return R<T> { S<T>(t, "la", "p") }; }
+    template<typename T> R<T> light_aqua_on_yellow(T t)         { return R<T> { S<T>(t, "la", "y") }; }
+    template<typename T> R<T> light_aqua_on_white(T t)          { return R<T> { S<T>(t, "la", "w") }; }
+    template<typename T> R<T> light_aqua_on_grey(T t)           { return R<T> { S<T>(t, "la", "e") }; }
+    template<typename T> R<T> light_aqua_on_light_blue(T t)     { return R<T> { S<T>(t, "la", "lb") }; }
+    template<typename T> R<T> light_aqua_on_light_green(T t)    { return R<T> { S<T>(t, "la", "lg") }; }
+    template<typename T> R<T> light_aqua_on_light_aqua(T t)     { return R<T> { S<T>(t, "la", "la") }; }
+    template<typename T> R<T> light_aqua_on_light_red(T t)      { return R<T> { S<T>(t, "la", "lr") }; }
+    template<typename T> R<T> light_aqua_on_light_purple(T t)   { return R<T> { S<T>(t, "la", "lp") }; }
+    template<typename T> R<T> light_aqua_on_light_yellow(T t)   { return R<T> { S<T>(t, "la", "ly") }; }
+    template<typename T> R<T> light_aqua_on_bright_white(T t)   { return R<T> { S<T>(t, "la", "bw") }; }
     template<typename T> R<T> light_red_on_black(T t)           { return R<T> { S<T>(t, "lr", "k") }; }
     template<typename T> R<T> light_red_on_blue(T t)            { return R<T> { S<T>(t, "lr", "b") }; }
     template<typename T> R<T> light_red_on_green(T t)           { return R<T> { S<T>(t, "lr", "g") }; }
@@ -560,7 +561,7 @@ namespace dye
     template<typename T> R<T> light_red_on_grey(T t)            { return R<T> { S<T>(t, "lr", "e") }; }
     template<typename T> R<T> light_red_on_light_blue(T t)      { return R<T> { S<T>(t, "lr", "lb") }; }
     template<typename T> R<T> light_red_on_light_green(T t)     { return R<T> { S<T>(t, "lr", "lg") }; }
-    template<typename T> R<T> light_red_on_light_aqua(T t)      { return R<T> { S<T>(t, "lr", "lq") }; }
+    template<typename T> R<T> light_red_on_light_aqua(T t)      { return R<T> { S<T>(t, "lr", "la") }; }
     template<typename T> R<T> light_red_on_light_red(T t)       { return R<T> { S<T>(t, "lr", "lr") }; }
     template<typename T> R<T> light_red_on_light_purple(T t)    { return R<T> { S<T>(t, "lr", "lp") }; }
     template<typename T> R<T> light_red_on_light_yellow(T t)    { return R<T> { S<T>(t, "lr", "ly") }; }
@@ -576,7 +577,7 @@ namespace dye
     template<typename T> R<T> light_purple_on_grey(T t)         { return R<T> { S<T>(t, "lp", "e") }; }
     template<typename T> R<T> light_purple_on_light_blue(T t)   { return R<T> { S<T>(t, "lp", "lb") }; }
     template<typename T> R<T> light_purple_on_light_green(T t)  { return R<T> { S<T>(t, "lp", "lg") }; }
-    template<typename T> R<T> light_purple_on_light_aqua(T t)   { return R<T> { S<T>(t, "lp", "lq") }; }
+    template<typename T> R<T> light_purple_on_light_aqua(T t)   { return R<T> { S<T>(t, "lp", "la") }; }
     template<typename T> R<T> light_purple_on_light_red(T t)    { return R<T> { S<T>(t, "lp", "lr") }; }
     template<typename T> R<T> light_purple_on_light_purple(T t) { return R<T> { S<T>(t, "lp", "lp") }; }
     template<typename T> R<T> light_purple_on_light_yellow(T t) { return R<T> { S<T>(t, "lp", "ly") }; }
@@ -592,7 +593,7 @@ namespace dye
     template<typename T> R<T> light_yellow_on_grey(T t)         { return R<T> { S<T>(t, "ly", "e") }; }
     template<typename T> R<T> light_yellow_on_light_blue(T t)   { return R<T> { S<T>(t, "ly", "lb") }; }
     template<typename T> R<T> light_yellow_on_light_green(T t)  { return R<T> { S<T>(t, "ly", "lg") }; }
-    template<typename T> R<T> light_yellow_on_light_aqua(T t)   { return R<T> { S<T>(t, "ly", "lq") }; }
+    template<typename T> R<T> light_yellow_on_light_aqua(T t)   { return R<T> { S<T>(t, "ly", "la") }; }
     template<typename T> R<T> light_yellow_on_light_red(T t)    { return R<T> { S<T>(t, "ly", "lr") }; }
     template<typename T> R<T> light_yellow_on_light_purple(T t) { return R<T> { S<T>(t, "ly", "lp") }; }
     template<typename T> R<T> light_yellow_on_light_yellow(T t) { return R<T> { S<T>(t, "ly", "ly") }; }
@@ -608,7 +609,7 @@ namespace dye
     template<typename T> R<T> bright_white_on_grey(T t)         { return R<T> { S<T>(t, "bw", "e") }; }
     template<typename T> R<T> bright_white_on_light_blue(T t)   { return R<T> { S<T>(t, "bw", "lb") }; }
     template<typename T> R<T> bright_white_on_light_green(T t)  { return R<T> { S<T>(t, "bw", "lg") }; }
-    template<typename T> R<T> bright_white_on_light_aqua(T t)   { return R<T> { S<T>(t, "bw", "lq") }; }
+    template<typename T> R<T> bright_white_on_light_aqua(T t)   { return R<T> { S<T>(t, "bw", "la") }; }
     template<typename T> R<T> bright_white_on_light_red(T t)    { return R<T> { S<T>(t, "bw", "lr") }; }
     template<typename T> R<T> bright_white_on_light_purple(T t) { return R<T> { S<T>(t, "bw", "lp") }; }
     template<typename T> R<T> bright_white_on_light_yellow(T t) { return R<T> { S<T>(t, "bw", "ly") }; }

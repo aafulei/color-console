@@ -20,3 +20,16 @@ int main()
 ```
 
 You are seeing `Hello, World!` in aqua.
+
+
+
+
+
+![](image/tech_news_marked.png)
+
+
+
+![](image\stock_news_marked.png)
+
+
+
