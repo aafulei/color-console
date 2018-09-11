@@ -25,9 +25,14 @@ You are seeing `Hello, World!` in aqua.
 
 <img src="image/hello.png" width="150"/> 
 
+## Contents
+
+- [Why Use It?](#user-content-why-use-it)
+- [Auto Marker : A Real Example](#user-content-auto-marker-a-real-example)
+
 ## Why Use It?
 
-1. **No need to reset : ** most solutions on the market work like manipulators, which *constantly* require you to do a resetting whenever you make a setting. While this traditional approach is also offered in this library in the `hue` namespace
+1. **No need to reset :**  most solutions on the market work like manipulators, which *constantly* require you to do a resetting whenever you make a setting. While this traditional approach is also offered in this library in the `hue` namespace
 
    ```c++
    cout << hue::red << "When in doubt, wear red." << hue::reset << endl;
@@ -41,14 +46,14 @@ You are seeing `Hello, World!` in aqua.
    cout << dye::green("When you're green, you're growing.") << endl;
    ```
 
-2. **Object-oriented : ** so that you may `dye` an object and save it for later output
+2. **Object-oriented :**  so that you may `dye` an object and save it for later output
 
    ```c++
    auto obj = dye::aqua("a light bluish-green color");
    cout << obj << endl;
    ```
 
-3. **`dye` anything : ** be it `int`, `double`, `std::string`, you name it
+3. **`dye` anything :**  be it `int`, `double`, `std::string`, you name it
 
    ```c++
    cout << dye::blue(42 + 7 % 8) << endl;
@@ -85,7 +90,7 @@ You are seeing `Hello, World!` in aqua.
    cout << "[ " + dye::aqua(ca) + " | " + dye::aqua(str) + " ]" << endl;
    ```
 
-6. **Convenient and extensible API : ** As an example, in the following code, `colorize` takes colors as parameters, while `inverse` method quickly gets you the inversed color.
+6. **Convenient and extensible API :**  As an example, in the following code, `colorize` takes colors as parameters, while `inverse` method quickly gets you the inversed color.
 
    ```c++
    double a = 88.88;
