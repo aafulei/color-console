@@ -34,7 +34,7 @@ You are seeing `Hello, World!` in aqua.
 
 ## Why Use It?
 
-<img src="image/useng" width="400"/>
+<img src="image/use.png" width="400"/>
 
 1. **No need to reset :**  most solutions on the market work like manipulators, which *constantly* require you to do a resetting whenever you make a setting. While this traditional approach is also offered in this library in the `hue` namespace
 
