@@ -4,6 +4,13 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 
 <img src="image/tech_news_marked.png" width="600"/>
 
+## Contents
+
+- [Installation](#user-content-instllation)
+- [How to Use](#user-content-how-to-use)
+- [Why Use It?](#user-content-why-use-it)
+- [A Real Example](#user-content-a-real-example)
+
 ## Installation
 
 Put [`color.hpp`](include/color.hpp) in the folder where you include headers.
@@ -24,11 +31,6 @@ int main()
 You are seeing `Hello, World!` in aqua.
 
 <img src="image/hello.png" width="150"/> 
-
-## Contents
-
-- [Why Use It?](#user-content-why-use-it)
-- [Auto Marker : A Real Example](#user-content-auto-marker-a-real-example)
 
 ## Why Use It?
 
@@ -97,7 +99,7 @@ You are seeing `Hello, World!` in aqua.
    cout << dye::colorize(a, a >= 0 ? "red" : "green").inverse() << endl;
    ```
 
-## Auto Marker : A Real Example
+## A Real Example
 
 With Color Console, we implement an auto marker which highlights keywords given in a watch list and colorizes numbers as well. The key function is
 
