@@ -11,7 +11,7 @@ Put [`color.hpp`](include/color.hpp) in the folder where you include headers.
 ## How to Use?
 
 ```c++
-#include "include/color.hpp"
+#include "../include/color.hpp"
 #include <iostream>
 
 int main()
@@ -25,43 +25,80 @@ You are seeing `Hello, World!` in aqua.
 
 <img src="image/hello.png" width="150"/> 
 
-## Why Use it?
+## Why Use It?
 
-1. **Object-oriented, not console-oriented:** most current solutions work like manipulators which *constantly* requires you to do a resetting after a setting. While this traditional approach is also offered in this library (in the `hue` namespace)
-
-   ```c++
-   std::cout << hue::red << "When in doubt, wear red." << hue::reset << std::endl;
-   std::cout << hue::blue << "Blue jeans. Coca-Cola." << hue::reset << std::endl;
-   std::cout << hue::green << "When you're green, you're growing." << hue::reset << std::endl;
-   ```
-
-   it can be boring to do so. Why not just
+1. **No need to reset : ** most solutions on the market work like manipulators, which *constantly* require you to do a resetting whenever you make a setting. While this traditional approach is also offered in this library in the `hue` namespace
 
    ```c++
-   std::cout << dye::red("When in doubt, wear red.") << std::endl;
-   std::cout << dye::blue("Blue jeans. Coca-Cola.") << std::endl;
-   std::cout << dye::green("When you're green, you're growing.") << std::endl;
+   cout << hue::red << "When in doubt, wear red." << hue::reset << endl;
+   cout << hue::green << "When you're green, you're growing." << hue::reset << endl;
    ```
 
-2. **You can `dye` anything that can be output:** `std::string`, C-style strings, `int`, `double`, you name it ...
+   it can be boring to do so. Why not just `dye` with
 
    ```c++
-   std::cout << dye::light_red(3.14) << std::endl;
-   std::cout << dye::light_blue(42 + 7 % 8) << std::endl;
-   
-   const char ca[] = "To Gatsby, the green light represents his dream.";
-   std::cout << dye::light_green(ca) << std::endl
+   cout << dye::red("When in doubt, wear red.") << endl;
+   cout << dye::green("When you're green, you're growing.") << endl;
    ```
 
-3. **Concatenation supported between dyed objects, even with different colors**
+2. **Object-oriented : ** so that you may `dye` an object and save it for later output
 
-4. **Extra support for strings**
+   ```c++
+   auto obj = dye::aqua("a light bluish-green color");
+   cout << obj << endl;
+   ```
 
-## More Examples
+3. **`dye` anything : ** be it `int`, `double`, `std::string`, you name it
 
-Consider a marker that takes in a `std::string` and marks the keywords and numbers with the given `color`.
+   ```c++
+   cout << dye::blue(42 + 7 % 8) << endl;
+   cout << dye::yellow(string("It shed a yellow light.")) << endl;
+   ```
+
+   In fact, you can `dye` any object for which `operator<<` is properly defined can be dyed.
+
+   With properly defined and declared
+
+   ```c++
+   struct DoubleVector;
+   ostream & operator<<(ostream &, const DoubleVector &);
+   ```
+
+    we are free to call with
+
+    ```c++
+   cout << dye::purple(DoubleVector{3.14, 2.72}) << endl;
+    ```
+
+
+4. **`+` supported, even colors differ : **so long as objects themselves have the same type, `operator+` is supported between the dyed objects, even with different colors
+
+   ```c++
+   cout << dye::light_red('A') + dye::light_blue('B') + dye::light_green('C') << endl;
+   ```
+
+5. **Extra support for strings : **be it `std::string` or C-style strings, dyed or undyed, strings can link up easily.
+
+   ```c++ 
+   const char ca[] = "ca";
+   string str = "str";
+   cout << "[ " + dye::aqua(ca) + " | " + dye::aqua(str) + " ]" << endl;
+   ```
+
+6. **Convenient and extensible API : ** As an example, in the following code, `colorize` takes colors as parameters, while `inverse` method quickly gets you the inversed color.
+
+   ```c++
+   double a = 88.88;
+   cout << dye::colorize(a, a >= 0 ? "red" : "green").inverse() << endl;
+   ```
+
+## Auto Marker : A Real Example
+
+With Color Console, we implement an auto marker which highlights keywords given in a watch list and colorizes numbers as well. The key function is
 
 ```c++
+using namespace std;
+
 auto mark(const string & str, string color)
 {
     istringstream iss(str);
@@ -86,18 +123,18 @@ auto mark(const string & str, string color)
 }
 ```
 
-Suppose we call with
+Suppose for a piece of tech news we call and print
 
 ```c++
 auto tech_news_marked = mark(tech_news, "light_red");
 cout << endl << tech_news_marked << endl;
 ```
 
-Then we have
+Then we are having
 
 <img src="image/tech_news_marked.png" width="600"/> 
 
-As another example which we mark both keywords and numbers
+As another example in which we mark both keywords and numbers
 
 ```c++
 auto stock_news_marked = mark(stock_news, "yellow");
