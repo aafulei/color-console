@@ -130,26 +130,24 @@ auto mark(const string & str, string color)
 }
 ```
 
-Suppose for a piece of tech news we call and print
+To mark the introductory paragraph of a tech news
 
 ```c++
-auto tech_news_marked = mark(tech_news, "light_red");
-cout << endl << tech_news_marked << endl;
+cout << mark(tech_news, "light_red") << endl;
 ```
 
 Then we are having
 
-<img src="image/tech_news_marked.png" width="600"/> 
+<img src="image/tech.png" width="600"/> 
 
 As another example in which we mark both keywords and numbers
 
 ```c++
-auto stock_news_marked = mark(stock_news, "yellow");
-cout << endl << stock_news_marked << endl;
+cout << mark(stock_news, "yellow") << endl;
 ```
 
 We are having
 
-<img src="image/stock_news_marked.png" width="600"/> 
+<img src="image/stock.png" width="600"/> 
 
 
