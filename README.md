@@ -2,7 +2,7 @@
 
 A lightweight header-only C++ library to bring colors to your Windows console with a very-easy-to-use API that frees you from the burden of setting and resetting with colors every time you make a call.
 
-<img src="image/tech_news_marked.png" width="600"/>
+<img src="image/tech.png" width="600"/>
 
 ## Contents
 
@@ -136,7 +136,7 @@ To mark the introductory paragraph of a tech news
 cout << mark(tech_news, "light_red") << endl;
 ```
 
-Then we are having
+We are having
 
 <img src="image/tech.png" width="600"/> 
 
