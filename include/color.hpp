@@ -324,7 +324,7 @@ namespace dye
     template<typename T> using R = colorful<bar<T>>;
     template<typename T> using S = item<bar<T>>;
 
-    template<typename T> R<T> colorize(T t, std::string a)      { return R<T> { S<T>(t, a) };   }
+    template<typename T> R<T> colorize(T t, std::string a)      { return R<T> { S<T>(t, a) }; }
     template<typename T> R<T> vanilla(T t)                      { return R<T> { S<T>(t) }; }
     template<typename T> R<T> black(T t)                        { return R<T> { S<T>(t, "k") }; }
     template<typename T> R<T> blue(T t)                         { return R<T> { S<T>(t, "b") }; }
