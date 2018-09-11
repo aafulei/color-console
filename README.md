@@ -55,7 +55,7 @@ You are seeing `Hello, World!` in aqua.
    cout << obj << endl;
    ```
 
-3. **`dye` anything :**  be it `int`, `double`, `std::string`, you name it
+3. **`dye` anything :**  
 
    ```c++
    cout << dye::blue(42 + 7 % 8) << endl;
@@ -78,13 +78,13 @@ You are seeing `Hello, World!` in aqua.
     ```
 
 
-4. **`+` supported, even colors differ : **so long as objects themselves have the same type, `operator+` is supported between the dyed objects, even with different colors
+4. **`+` supported, even with different colors :**
 
    ```c++
    cout << dye::light_red('A') + dye::light_blue('B') + dye::light_green('C') << endl;
    ```
 
-5. **Extra support for strings : **be it `std::string` or C-style strings, dyed or undyed, strings can link up easily.
+5. **Extra support for strings :**  be it `std::string` or C-style strings, dyed or undyed, strings can link up easily.
 
    ```c++ 
    const char ca[] = "ca";
@@ -92,7 +92,7 @@ You are seeing `Hello, World!` in aqua.
    cout << "[ " + dye::aqua(ca) + " | " + dye::aqua(str) + " ]" << endl;
    ```
 
-6. **Convenient and extensible API :**  As an example, in the following code, `colorize` takes colors as parameters, while `inverse` method quickly gets you the inversed color.
+6. **Convenient and extensible API :**  In the following code, `colorize` takes colors as parameters, while `inverse` method quickly gets you the inversed color.
 
    ```c++
    double a = 88.88;
@@ -101,7 +101,7 @@ You are seeing `Hello, World!` in aqua.
 
 ## A Real Example
 
-With Color Console, we implement an auto marker which highlights keywords given in a watch list and colorizes numbers as well. The key function is
+With [Color Console](include/color.hpp), we implement an [auto marker](examples/mark.cpp) which highlights keywords given in a watch list and colorizes numbers as well. The key function is
 
 ```c++
 using namespace std;
