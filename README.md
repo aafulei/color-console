@@ -14,6 +14,7 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
   - [Color Tags](#user-content-color-tags)
   - [`dye` Namespace](#user-content-dye-namespace)
   - [`hue` Namespace](#user-content-hue-namespace)
+- [Technical](#user-content-technical)
 
 ## Installation
 
@@ -164,8 +165,10 @@ We are having
 
 [Color Console](include/color.hpp) offers two sets of solutions which are put separately in two namespaces
 
-1. objected-oriented [`dye`](#user-content-dye-namespace) (:star:*highly recommended*) 
+1. objected-oriented [`dye`](#user-content-dye-namespace) ( :star:*highly recommended* ) 
 2. console-oriented, manipulator-like, traditional [`hue`](#user-content-hue-namespace)
+
+There are 16 singles colors and thus 256 combinations (text + background) supported by Windows console.
 
 Know the [color tags](#user-content-color-tags) and `dye` your console (or change its `hue`) immediately!
 
@@ -174,11 +177,10 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
   - **Single**
 
     - ***Basic***    `black` `blue` `green` `aqua` `red` `purple` `yellow` `white` `grey`
-    - ***Light***    `light_[basic]` *e.g.*  `light_red` (*note: no* `light_black` `light_white` `light_grey`)
+    - ***Light***    `light_blue` `light_green` `light_aqua` `light_red` `light_purple` `light_yellow`
     - ***Bright***    `bright_white`
 
   - **Background**
-
     - `on_[single]` *e.g.*  `on_light_aqua`
 
   - **Compound**
@@ -264,3 +266,13 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
   *Try saying [Hello, World](examples/hue.cpp) in the traditional manner.*
 
   *Note: Do remember to `reset`, otherwise you're causing troubles to late-users of the console.*
+
+## Technical
+
+- *move semantics* widely used. Fast `+` operations between dyed objects, especially for temporaries. Since more rvalues than lvalues are expected in use, we adopt the *pass-by-value-and-move* pattern.
+- `dye::[color_tag]` (*e.g.* `dye::red`) is a template factory function that spits out objects based on their types. We rely on function template argument deduction to free users from having to specify the types explicitly (*e.g.* `dye::red<std::string>("hello")`).
+- users shouldn't worry about the types of the dyed objects. If they want, there are two layers of template classes:  an `item` to hold a single object, and a container called  `colorful` to hold `item`(s). `item` is intermediate and kept internally. Users are always using `colorful` of one or many `item`(s).
+- a compile-time type-conversion technique (called `bar<T>`) is employed so that even function template argument deduction concludes it sees a `const char *` the dyed object it generates would be based on `std::string`.
+
+
+
