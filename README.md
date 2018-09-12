@@ -162,14 +162,15 @@ We are having
 - **Color Tags**
   - **Single**
     - ***Basic***  `black` `blue` `green` `aqua` `red` `purple` `yellow` `white` `grey`
-    - ***Light***  `light_[basic]` *e.g.* `light_blue` `light_red` (*note: no* `light_black/white/grey`)
+    - ***Light***  `light_[basic]` *e.g.*  `light_red` (*note: no* `light_black` `light_white` `light_grey`)
     - ***Bright***  `bright_white`
   - **Background**
-    - `on_[single]` *e.g.* `on_grey`  `on_light_aqua` `on_bright_white`
+    - `on_[single]` *e.g.*  `on_light_aqua`
   - **Compound**
-    - `[single]_on_[single]` *e.g.* `black_on_yellow` `light_red_on_bright_white`
+    - `[single]_on_[single]` *e.g.*  `light_red_on_bright_white`
   - **Special**
-    - `vanilla`: do nothing, can be useful in type declaration, *e.g.* `auto a = dye::vanilla(""); a +=  dye::red("red");` 
-- **Namespace `dye`**
-    1. `dye::[color_tag](object)` generates a dyed object ready for colorized output
+    - `vanilla`: do nothing  *i.e.* dye in current console color
+- **Namespace `dye`  :**  object-oriented solution
+    1. `dye::[color_tag](object)` generates a dyed object ready for colorized output  *e.g.* `cout << dye::red(3.14) << endl;`
+    2. 
 - **Namespace** `hue`
