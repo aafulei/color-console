@@ -10,7 +10,7 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 - [Getting Started](#user-content-getting-started)
 - [Why Use It?](#user-content-why-use-it)
 - [A Real Example](#user-content-a-real-example)
-- [How To Use](#user-content-how-to-use)
+- [How to Use](#user-content-how-to-use)
 
 ## Installation
 
@@ -39,7 +39,7 @@ You are seeing `Hello, World!` in aqua.
 
 ## Why Use It?
 
-<img src="image/use.png" width="450"/>
+<img src="image/why.png" width="450"/>
 
 1. **No need to reset :**  most solutions on the market work like manipulators, which *constantly* require you to reset the screen color after you set it. While this traditional approach is also offered in this library in the `hue` namespace
 
@@ -157,14 +157,14 @@ We are having
 
 *For the details, see the [full implementation](examples/mark.cpp).*
 
-## How To Use
+## How to Use
 
 - **Color Tags**
 
   - **Single**
-    - ***Basic***  `black` `blue` `green` `aqua` `red` `purple` `yellow` `white` `grey`
-    - ***Light***  `light_[basic]` *e.g.*  `light_red` (*note: no* `light_black` `light_white` `light_grey`)
-    - ***Bright***  `bright_white`
+    - ***Basic***    `black` `blue` `green` `aqua` `red` `purple` `yellow` `white` `grey`
+    - ***Light***    `light_[basic]` *e.g.*  `light_red` (*note: no* `light_black` `light_white` `light_grey`)
+    - ***Bright***    `bright_white`
   - **Background**
     - `on_[single]` *e.g.*  `on_light_aqua`
   - **Compound**
@@ -174,15 +174,17 @@ We are having
 
 - **Namespace `dye`  :**  object-oriented solution
 
+    <img src="image/how.png" width="450"/>
+
     - `dye::[color_tag](object)` generates a dyed `object` ready for colorized output
-
+    
        ```c++
-       auto a = dye::red(42);
-       cout << a << end;
+       auto a = dye::on_light_yellow(42);
+       cout << a << endl;
        ```
-
+    
     - You may use `+` or `+=` to construct a chain of dyed objects. Colors may differ, but object types must be the same.
-
+    
         ```c++
         using vec = DoubleVector;
         
@@ -191,25 +193,26 @@ We are having
         b += dye::green(vec{7, 8, 9});
         cout << b << endl;
         ```
-
+    
     -  Rules for strings even more flexible. You may `+` any compatible strings, even those undyed ones.
-
+    
         ```c++
         cout << dye::on_white(string("strings")) + " are " +
                 dye::on_white("more") + string(" flexible") << endl;
         ```
-
+    
     - `dye::colorize(object, [color_tag])` dyes the `object` with `[color_tag]` 
-
+    
         ```c++
-        cout << dye::colorize('c', "purple") << endl;
+        cout << dye::colorize("grape", "purple") << endl;
         ```
-
+    
     - `dye::inverse(dyed)` gets a new object in inverse color. `dyed.inverse()` does that in place.
-
+    
         ```c++
         cout << dye::inverse(dye::red("red")) << endl;
-        auto contrast = dye::vanilla("high contrast");
+        
+        auto contrast = dye::vanilla("contrast");
         cout << contrast.inverse() << endl;
         ```
 
