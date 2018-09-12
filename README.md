@@ -80,7 +80,7 @@ You are seeing `Hello, World!` in aqua.
     ```
 
 
-4. **`+`  between objects, even colors differ :**
+4. **`+`  dyed objects, even colors differ :**
 
    ```c++
    cout << dye::light_red('A') + dye::light_blue('B') + dye::light_green('C') << endl;
@@ -154,5 +154,5 @@ We are having
 
 <img src="image/stock.png" width="600"/> 
 
-*For the details, see the [entire implementation](examples/mark.cpp).*
+*For the details, see the [full implementation](examples/mark.cpp).*
 
