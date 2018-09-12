@@ -240,9 +240,7 @@ Know the color tags and `dye` your console (or change its `hue`) immediately!
 
 ***A console-oriented, manipulator-like, traditional solution.***
 
-- `cout << hue::[single]` to set the text color to `[single]`
-
-- `cout << hue::on_[single]` to set background color to `[single]`
+- `cout << hue::color_tag` to set the text color to `color_tag`
 
 - `cout << hue::reset` to reset the console color (to white text and black background)
 
