@@ -11,6 +11,9 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 - [Why Use It?](#user-content-why-use-it)
 - [A Real Example](#user-content-a-real-example)
 - [How to Use](#user-content-how-to-use)
+  - [Color Tags](#user-content-color-tags)
+  - [`dye` Namespace](#user-content-dye-namespace)
+  - [`hue` Namespace](#user-content-hue-namespace)
 
 ## Installation
 
@@ -102,7 +105,7 @@ You are seeing `Hello, World!` in aqua.
    cout << dye::colorize(a, a >= 0 ? "red" : "green").inverse() << endl;
    ```
 
-*Try the [above cases](examples/use.cpp) yourself.*
+*Try the [above cases](examples/why.cpp) yourself.*
 
 ## A Real Example
 
@@ -159,62 +162,96 @@ We are having
 
 ## How to Use
 
-- **Color Tags**
+### **Color Tags**
 
   - **Single**
+
     - ***Basic***    `black` `blue` `green` `aqua` `red` `purple` `yellow` `white` `grey`
     - ***Light***    `light_[basic]` *e.g.*  `light_red` (*note: no* `light_black` `light_white` `light_grey`)
     - ***Bright***    `bright_white`
+
   - **Background**
+
     - `on_[single]` *e.g.*  `on_light_aqua`
+
   - **Compound**
+
     - `[single]_on_[single]` *e.g.*  `light_red_on_bright_white`
+
   - **Special**
+
     - `vanilla` do nothing  *i.e.* in current console color
 
-- **Namespace `dye`  :**  object-oriented solution
+### `dye` Namespace
 
-    <img src="image/how.png" width="450"/>
+***An object-oriented solution.***
 
-    - `dye::[color_tag](object)` generates a dyed `object` ready for colorized output
-    
-       ```c++
-       auto a = dye::on_light_yellow(42);
-       cout << a << endl;
-       ```
-    
-    - You may use `+` or `+=` to construct a chain of dyed objects. Colors may differ, but object types must be the same.
-    
-        ```c++
-        using vec = DoubleVector;
-        
-        auto b = dye::red(vec{1, 2, 3});
-        b = b + dye::blue(vec{4, 5, 6});
-        b += dye::green(vec{7, 8, 9});
-        cout << b << endl;
-        ```
-    
-    -  Rules for strings even more flexible. You may `+` any compatible strings, even those undyed ones.
-    
-        ```c++
-        cout << dye::on_white(string("strings")) + " are " +
-                dye::on_white("more") + string(" flexible") << endl;
-        ```
-    
-    - `dye::colorize(object, [color_tag])` dyes the `object` with `[color_tag]` 
-    
-        ```c++
-        cout << dye::colorize("grape", "purple") << endl;
-        ```
-    
-    - `dye::inverse(dyed)` gets a new object in inverse color. `dyed.inverse()` does that in place.
-    
-        ```c++
-        cout << dye::inverse(dye::red("red")) << endl;
-        
-        auto contrast = dye::vanilla("contrast");
-        cout << contrast.inverse() << endl;
-        ```
+<img src="image/how.png" width="450"/>
 
-- **Namespace** `hue`
+- `dye::[color_tag](object)` generates a dyed `object` ready for colorized output
 
+   ```c++
+   auto a = dye::on_light_yellow(42);
+   cout << a << endl;
+   ```
+
+- You may use `+` or `+=` to construct a chain of dyed objects. Colors may differ, but object types must be the same.
+
+    ```c++
+    using vec = DoubleVector;
+
+    auto b = dye::red(vec{1, 2, 3});
+    b = b + dye::blue(vec{4, 5, 6});
+    b += dye::green(vec{7, 8, 9});
+    cout << b << endl;
+    ```
+
+-  Rules for strings even more flexible. You may `+` any compatible strings, even those undyed ones.
+
+    ```c++
+    cout << dye::on_white(string("strings")) + " are " +
+            dye::on_white("more") + string(" flexible") << endl;
+    ```
+
+- `dye::colorize(object, [color_tag])` dyes the `object` with `[color_tag]` 
+
+    ```c++
+    cout << dye::colorize("grape", "purple") << endl;
+    ```
+
+- `dye::inverse(dyed)` gets a new object in inverse color. `dyed.inverse()` does that in place.
+
+    ```c++
+    cout << dye::inverse(dye::red("red")) << endl;
+
+    auto contrast = dye::vanilla("contrast");
+    cout << contrast.inverse() << endl;
+    ```
+
+    *Try the [above cases](examples/how.cpp) yourself.*
+
+### `hue` Namespace
+
+***A console-oriented, manipulator-like, traditional solution.***
+
+- `cout << hue::[single]` to set the text color to `[single]`
+
+- `cout << hue::on_[single]` to set background color to `[single]`
+
+- `cout << hue::reset` to reset the console color (to white text and black background)
+
+  ```c++
+  #include "../include/color.hpp"
+  #include <iostream>
+
+  int main()
+  {
+      std::cout << hue::light_red << hue::on_bright_white
+                << "Hello, World" << hue::reset << std::endl;
+      return 0;
+  }
+  ```
+
+  *Try saying [Hello, World](examples/hue.cpp) in the traditional manner.*
+
+  *Note: Do remember to `reset`, otherwise you're causing troubles to late-users of the console.*
