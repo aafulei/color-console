@@ -243,7 +243,7 @@ We are having
   ```c++
   #include "../include/color.hpp"
   #include <iostream>
-
+  
   int main()
   {
       std::cout << hue::light_red << hue::on_bright_white
@@ -251,6 +251,8 @@ We are having
       return 0;
   }
   ```
+
+  <img src="image/hue.png" width="150"/>
 
   *Try saying [Hello, World](examples/hue.cpp) in the traditional manner.*
 
