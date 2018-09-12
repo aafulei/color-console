@@ -35,10 +35,10 @@ int main()
 
     cout << dye::colorize("grape", "purple") << endl;
 
-    cout << dye::inverse(dye::red("red")) << endl;
+    cout << dye::invert(dye::red("red")) << endl;
 
     auto contrast = dye::vanilla("contrast");
-    cout << contrast.inverse() << endl;
+    cout << contrast.invert() << endl;
 
     return 0;
 }

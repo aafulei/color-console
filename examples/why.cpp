@@ -38,7 +38,7 @@ int main()
     cout << "[ " + dye::aqua(ca) + " | " + dye::aqua(str) + " ]" << endl;
 
     double a = 88.88;
-    cout << dye::colorize(a, a >= 0 ? "red" : "green").inverse() << endl;
+    cout << dye::colorize(a, a >= 0 ? "red" : "green").invert() << endl;
 
     return 0;
 }

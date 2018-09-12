@@ -146,7 +146,7 @@ namespace hue
         set(DEFAULT_COLOR);
     }
 
-    int inverse(int c)
+    int invert(int c)
     {
         if (is_good(c)) {
             int a = c % 16;
@@ -235,10 +235,10 @@ namespace dye
             this->std::list<item<T>>::push_back(item<T>(std::move(t)));
         }
 
-        colorful<T> & inverse()
+        colorful<T> & invert()
         {
             for (auto & elem : *this)
-                elem.inverse();
+                elem.invert();
             return *this;
         }
 
@@ -246,7 +246,7 @@ namespace dye
         friend std::ostream & operator<<(std::ostream &, const colorful<U> &);
 
         template<typename U>
-        friend colorful<U> inverse(colorful<U> col);
+        friend colorful<U> invert(colorful<U> col);
     };
 
     template<typename T>
@@ -281,11 +281,11 @@ namespace dye
     }
 
     template<typename T>
-    colorful<T> inverse(colorful<T> col)
+    colorful<T> invert(colorful<T> col)
     {
         colorful<T> res(std::move(col));
         for (auto & elem : res)
-            elem.inverse();
+            elem.invert();
         return res;
     }
 
@@ -302,9 +302,9 @@ namespace dye
         item(T t, std::string a)                :  thing(std::move(t)), color(hue::stoc(a))     {}
         item(T t, std::string a, std::string b) :  thing(std::move(t)), color(hue::stoc(a, b))  {}
 
-        item<T> & inverse()
+        item<T> & invert()
         {
-            color = hue::inverse(color);
+            color = hue::invert(color);
             return *this;
         }
 

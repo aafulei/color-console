@@ -71,7 +71,7 @@ auto mark(const string & str, string color)
             separate(text, pre, word, post);
             marked += pre;
             if (is_keyword(word))
-                marked += dye::colorize(word, color).inverse();
+                marked += dye::colorize(word, color).invert();
             else if (is_number(word))
                 marked += dye::colorize(word, color);
             else
