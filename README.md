@@ -270,9 +270,9 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
 ## Technical Note
 
 - *move semantics* widely used. Fast `+` operations are supported between dyed objects, especially for temporaries. Since more rvalues than lvalues are expected in use, we adopt a *pass-by-value-and-move* pattern.
--  `dye::red` and the like are template factory functions that spit out dyed objects. Function template argument deduction is relied on to free users from having to specify the types explicitly (*e.g.* `dye::red<std::string>("hello")`).
-- users shouldn't worry about the types of the dyed objects. If they want, there are two layers of template classes:  an `item` to hold a single object, and a container `colorful` to hold `item`(s). `item` is intermediate and kept internally. Users are always using `colorful` of one or many `item`(s).
-- a compile-time type-conversion technique (called `bar<T>`) is employed so that even function template argument deduction concludes it sees a `const char *` the dyed object it generates would be based on `std::string`.
+-  `dye::red` and the like are in fact template factory functions that spit out dyed objects. Function template argument deduction is relied on to free users from having to specify the types explicitly (*e.g.* `dye::red<std::string>("hello")`).
+- users shouldn't worry about the types of the dyed objects. If they want, there are two layers of template classes:  an `item<T>` to hold a single object, and a container `colorful<item<T>>` to hold `item<T>`(s). `item<T>` is intermediate and kept internally.
+- a compile-time type-conversion technique (called `bar<T>`) is employed so that even function template argument deduction concludes it sees a `const char *` the dyed object generated would be based on `std::string`.
 
 
 
