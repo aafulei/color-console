@@ -99,7 +99,7 @@ You are seeing `Hello, World!` in aqua.
    cout << "[ " + dye::aqua(ca) + " | " + dye::aqua(str) + " ]" << endl;
    ```
 
-6. **Convenient and extensible API :**  say `colorize` an object according to the parameter, or quickly `inverse` the color
+6. **Convenient and extensible API :**  say `colorize` an object according to the parameter, or quickly `invert the color
 
    ```c++
    double a = 88.88;
@@ -201,7 +201,7 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
    cout << a << endl;
    ```
 
-- You may use `+` or `+=` to make a chain of dyed objects. So long as the types of the original objects stay the same, colors may differ.
+- You may use `+` or `+=` to make a chain of dyed objects. Colors may differ, so long as the types of the original objects stay the same.
 
     ```c++
     using vec = DoubleVector;
@@ -219,13 +219,13 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
             dye::on_white("more") + string(" flexible") << endl;
     ```
 
-- `dye::colorize(object, color_tag)` dyes the `object` with `color_tag` 
+- `dye::colorize(object, color_tag)` dyes `object` with `color_tag` 
 
     ```c++
     cout << dye::colorize("grape", "purple") << endl;
     ```
 
-- `dye::inverse(dyed)` generates a new object in inverted color. `dyed.inverse()` does that in place.
+- `dye::invert(dyed)` generates a new object in inverted color. `dyed.invert()` does that in place.
 
     ```c++
     cout << dye::inverse(dye::red("red")) << endl;
