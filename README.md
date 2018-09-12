@@ -32,7 +32,7 @@ You are seeing `Hello, World!` in aqua.
 
 <img src="image/hello.png" width="150"/> 
 
-** Try saying "Hello, World" yourself with the [source code](examples/hello.cpp).*
+*Try saying "Hello, World" yourself with the [source code](examples/hello.cpp).*
 
 ## Why Use It?
 
@@ -99,7 +99,7 @@ You are seeing `Hello, World!` in aqua.
    cout << dye::colorize(a, a >= 0 ? "red" : "green").inverse() << endl;
    ```
 
-** Try the above yourself with the [source code](examples/use.cpp).*
+*Try the above usage yourself with the [source code](examples/use.cpp).*
 
 ## A Real Example
 
@@ -152,5 +152,5 @@ We are having
 
 <img src="image/stock.png" width="600"/> 
 
-** For the entire implementation, see the [source code](examples/mark.cpp).*
+*For the entire implementation, see the [source code](examples/mark.cpp).*
 
