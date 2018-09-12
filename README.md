@@ -14,7 +14,7 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
   - [Color Tags](#user-content-color-tags)
   - [`dye` Namespace](#user-content-dye-namespace)
   - [`hue` Namespace](#user-content-hue-namespace)
-- [Technical](#user-content-technical)
+- [Technical Note](#user-content-technical-note)
 
 ## Installation
 
@@ -267,12 +267,13 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
 
   *Note: Do remember to `reset`, otherwise you're causing troubles to late-users of the console.*
 
-## Technical
+## Technical Note
 
-- *move semantics* widely used. Fast `+` operations between dyed objects, especially for temporaries. Since more rvalues than lvalues are expected in use, we adopt the *pass-by-value-and-move* pattern.
-- `dye::[color_tag]` (*e.g.* `dye::red`) is a template factory function that spits out objects based on their types. We rely on function template argument deduction to free users from having to specify the types explicitly (*e.g.* `dye::red<std::string>("hello")`).
-- users shouldn't worry about the types of the dyed objects. If they want, there are two layers of template classes:  an `item` to hold a single object, and a container called  `colorful` to hold `item`(s). `item` is intermediate and kept internally. Users are always using `colorful` of one or many `item`(s).
+- *move semantics* widely used. Fast `+` operations are supported between dyed objects, especially for temporaries. Since more rvalues than lvalues are expected in use, we adopt a *pass-by-value-and-move* pattern.
+-  `dye::red` and the like are template factory functions that spit out dyed objects. Function template argument deduction is relied on to free users from having to specify the types explicitly (*e.g.* `dye::red<std::string>("hello")`).
+- users shouldn't worry about the types of the dyed objects. If they want, there are two layers of template classes:  an `item` to hold a single object, and a container `colorful` to hold `item`(s). `item` is intermediate and kept internally. Users are always using `colorful` of one or many `item`(s).
 - a compile-time type-conversion technique (called `bar<T>`) is employed so that even function template argument deduction concludes it sees a `const char *` the dyed object it generates would be based on `std::string`.
 
 
 
+[Back to Top](#user-content-color-console)
