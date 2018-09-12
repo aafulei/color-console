@@ -200,7 +200,7 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
 - `dye::[color_tag](object)` generates a dyed `object` ready for colorized output
 
    ```c++
-   auto a = dye::on_light_yellow(42);
+   auto a = dye::on_yellow(42);
    cout << a << endl;
    ```
 
