@@ -63,7 +63,7 @@ auto mark(const string & str, string color)
 {
     istringstream iss(str);
     auto marked = dye::vanilla("");
-    for (string line; getline(iss, line); marked += "\n\n") {
+    for (string line; getline(iss, line); marked += "\n") {
         istringstream lineiss(line);
         for (string text; lineiss >> text; marked += " ") {
             string pre, word, post;
@@ -92,13 +92,13 @@ int main()
 
     auto stock_news = "Shares in Twitter, Snap and Facebook all declined "
                       "significantly, dragging the Nasdaq down more than 1% "
-                      "to below the 8,000 level.\nTwitter fell 6% to end the "
-                      "session at $32.17. \nFacebook saw its shares fall more "
-                      "than 2% to finish at $167.18.\nGoogle parent, "
+                      "to below the 8,000 level.\n\nTwitter fell 6% to end the "
+                      "session at $32.17. \n\nFacebook saw its shares fall more "
+                      "than 2% to finish at $167.18.\n\nGoogle parent, "
                       "Alphabet, came in for a drubbing during the hearing "
                       "because it declined to accept the committes's "
                       "invitation to testify. The company's stock slipped "
-                      "nearly 1% to close at 1186.48.\nMicrosoft fell almost "
+                      "nearly 1% to close at 1186.48.\n\nMicrosoft fell almost "
                       "3% on the day, to $108.49.";
 
     cout << mark(stock_news, "yellow") << endl;

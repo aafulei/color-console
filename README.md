@@ -114,7 +114,7 @@ auto mark(const string & str, string color)
 {
     istringstream iss(str);
     auto marked = dye::vanilla("");
-    for (string line; getline(iss, line); marked += "\n\n") {
+    for (string line; getline(iss, line); marked += "\n") {
         istringstream lineiss(line);
         for (string text; lineiss >> text; marked += " ") {
             string pre, word, post;
