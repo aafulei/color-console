@@ -174,8 +174,7 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
 
 ### **Color Tags**
 
-  - **Single**
-
+  - **Single / Text**
     - ***Basic***    `black` `blue` `green` `aqua` `red` `purple` `yellow` `white` `grey`
     - ***Light***    `light_blue` `light_green` `light_aqua` `light_red` `light_purple` `light_yellow`
     - ***Bright***    `bright_white`
@@ -184,12 +183,10 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
     - `on_[single]` *e.g.*  `on_light_aqua`
 
   - **Compound**
-
     - `[single]_on_[single]` *e.g.*  `light_red_on_bright_white`
 
   - **Special**
-
-    - `vanilla` do nothing  *i.e.* in current console color
+    - `vanilla` do nothing  *i.e.* stay in current console color
 
 ### `dye` Namespace
 
@@ -204,18 +201,18 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
    cout << a << endl;
    ```
 
-- You may use `+` or `+=` to construct a chain of dyed objects. Colors may differ, but object types must be the same.
+- You may use `+` or `+=` to make a chain of dyed objects. So long as the types of the original objects stay the same, colors may differ.
 
     ```c++
     using vec = DoubleVector;
-
+    
     auto b = dye::red(vec{1, 2, 3});
     b = b + dye::blue(vec{4, 5, 6});
     b += dye::green(vec{7, 8, 9});
     cout << b << endl;
     ```
 
--  Rules for strings even more flexible. You may `+` any compatible strings, even those undyed ones.
+- Rules for strings are even more flexible. You may `+` or `+=` any compatible strings, even those undyed ones.
 
     ```c++
     cout << dye::on_white(string("strings")) + " are " +
@@ -228,11 +225,11 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
     cout << dye::colorize("grape", "purple") << endl;
     ```
 
-- `dye::inverse(dyed)` gets a new object in inverse color. `dyed.inverse()` does that in place.
+- `dye::inverse(dyed)` generates a new object in inverted color. `dyed.inverse()` does that in place.
 
     ```c++
     cout << dye::inverse(dye::red("red")) << endl;
-
+    
     auto contrast = dye::vanilla("contrast");
     cout << contrast.inverse() << endl;
     ```
