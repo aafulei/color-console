@@ -160,6 +160,7 @@ We are having
 ## How To Use
 
 - **Color Tags**
+
   - **Single**
     - ***Basic***  `black` `blue` `green` `aqua` `red` `purple` `yellow` `white` `grey`
     - ***Light***  `light_[basic]` *e.g.*  `light_red` (*note: no* `light_black` `light_white` `light_grey`)
@@ -169,8 +170,48 @@ We are having
   - **Compound**
     - `[single]_on_[single]` *e.g.*  `light_red_on_bright_white`
   - **Special**
-    - `vanilla`: do nothing  *i.e.* dye in current console color
+    - `vanilla` do nothing  *i.e.* in current console color
+
 - **Namespace `dye`  :**  object-oriented solution
-    1. `dye::[color_tag](object)` generates a dyed object ready for colorized output  *e.g.* `cout << dye::red(3.14) << endl;`
-    2. 
+
+    - `dye::[color_tag](object)` generates a dyed `object` ready for colorized output
+
+       ```c++
+       auto a = dye::red(42);
+       cout << a << end;
+       ```
+
+    - You may use `+` or `+=` to construct a chain of dyed objects. Colors may differ, but object types must be the same.
+
+        ```c++
+        using vec = DoubleVector;
+        
+        auto b = dye::red(vec{1, 2, 3});
+        b = b + dye::blue(vec{4, 5, 6});
+        b += dye::green(vec{7, 8, 9});
+        cout << b << endl;
+        ```
+
+    -  Rules for strings even more flexible. You may `+` any compatible strings, even those undyed ones.
+
+        ```c++
+        cout << dye::on_white(string("strings")) + " are " +
+                dye::on_white("more") + string(" flexible") << endl;
+        ```
+
+    - `dye::colorize(object, [color_tag])` dyes the `object` with `[color_tag]` 
+
+        ```c++
+        cout << dye::colorize('c', "purple") << endl;
+        ```
+
+    - `dye::inverse(dyed)` gets a new object in inverse color. `dyed.inverse()` does that in place.
+
+        ```c++
+        cout << dye::inverse(dye::red("red")) << endl;
+        auto contrast = dye::vanilla("high contrast");
+        cout << contrast.inverse() << endl;
+        ```
+
 - **Namespace** `hue`
+
