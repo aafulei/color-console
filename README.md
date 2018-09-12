@@ -162,6 +162,13 @@ We are having
 
 ## How to Use
 
+[Color Console](include/color.hpp) offers two sets of solutions which are put separately in two namespaces
+
+1. objected-oriented [`dye`](#user-content-dye-namespace) (:star:*highly recommended*) 
+2. console-oriented, manipulator-like, traditional [`hue`](#user-content-hue-namespace)
+
+Know the [color tags](#user-content-color-tags) and `dye` your console (or change its `hue`) immediately!
+
 ### **Color Tags**
 
   - **Single**
