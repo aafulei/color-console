@@ -165,12 +165,12 @@ We are having
 
 [Color Console](include/color.hpp) offers two sets of solutions which are put separately in two namespaces
 
-1. objected-oriented [`dye`](#user-content-dye-namespace) ( :star:*highly recommended* ) 
-2. console-oriented, manipulator-like, traditional [`hue`](#user-content-hue-namespace)
+1. objected-oriented `dye` ( :star:*highly recommended* ) 
+2. console-oriented, manipulator-like, traditional `hue`
 
 There are 16 single colors and thus 256 combinations (text + background) supported by Windows console.
 
-Know the [color tags](#user-content-color-tags) and `dye` your console (or change its `hue`) immediately!
+Know the color tags and `dye` your console (or change its `hue`) immediately!
 
 ### **Color Tags**
 
