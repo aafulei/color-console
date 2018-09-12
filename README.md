@@ -1,6 +1,6 @@
 # Color Console
 
-A lightweight header-only C++ library to bring colors to your Windows console with a very-easy-to-use API that frees you from the burden of setting and resetting with colors every time you make a call.
+A lightweight header-only C++ library to bring colors to your Windows console with a very-easy-to-use API that frees you from the burden of setting and resetting with screen colors every time you make a call.
 
 <img src="image/tech.png" width="600"/>
 
