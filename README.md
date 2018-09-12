@@ -197,7 +197,7 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
 
 <img src="image/how.png" width="450"/>
 
-- `dye::[color_tag](object)` generates a dyed `object` ready for colorized output
+- `dye::[color_tag](object)` generates a dyed object ready for colorized output
 
    ```c++
    auto a = dye::on_yellow(42);
@@ -222,7 +222,7 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
             dye::on_white("more") + string(" flexible") << endl;
     ```
 
-- `dye::colorize(object, [color_tag])` dyes the `object` with `[color_tag]` 
+- `dye::colorize(object, [color_tag])` dyes the `object` with `color_tag` 
 
     ```c++
     cout << dye::colorize("grape", "purple") << endl;
