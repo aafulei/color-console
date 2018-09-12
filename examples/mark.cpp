@@ -55,7 +55,11 @@ bool is_number(string s)
     return !s.empty() && s.find_first_not_of(",.1234567890") == string::npos;
 }
 
+#if __cplusplus < 201402L
+auto mark(const string & str, string color) -> decltype(dye::vanilla(""))
+#else
 auto mark(const string & str, string color)
+#endif
 {
     istringstream iss(str);
     auto marked = dye::vanilla("");
