@@ -103,7 +103,7 @@ You are seeing `Hello, World!` in aqua.
 
    ```c++
    double a = 88.88;
-   cout << dye::colorize(a, a >= 0 ? "red" : "green").inverse() << endl;
+   cout << dye::colorize(a, a >= 0 ? "red" : "green").invert() << endl;
    ```
 
 *Try the [above cases](examples/why.cpp) yourself.*
@@ -127,7 +127,7 @@ auto mark(const string & str, string color)
             separate(text, pre, word, post);
             marked += pre;
             if (is_keyword(word))
-                marked += dye::colorize(word, color).inverse();
+                marked += dye::colorize(word, color).invert();
             else if (is_number(word))
                 marked += dye::colorize(word, color);
             else
@@ -228,10 +228,10 @@ Know the [color tags](#user-content-color-tags) and `dye` your console (or chang
 - `dye::invert(dyed)` generates a new object in inverted color. `dyed.invert()` does that in place.
 
     ```c++
-    cout << dye::inverse(dye::red("red")) << endl;
+    cout << dye::invert(dye::red("red")) << endl;
     
     auto contrast = dye::vanilla("contrast");
-    cout << contrast.inverse() << endl;
+    cout << contrast.invert() << endl;
     ```
 
     *Try the [above cases](examples/how.cpp) yourself.*
