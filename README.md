@@ -7,7 +7,7 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 ## Contents
 
 - [Installation](#user-content-instllation)
-- [How to Use](#user-content-how-to-use)
+- [Getting Started](#user-content-getting-started)
 - [Why Use It?](#user-content-why-use-it)
 - [A Real Example](#user-content-a-real-example)
 
@@ -15,7 +15,7 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 
 Put [`color.hpp`](include/color.hpp) in the folder where you include headers.
 
-## How to Use?
+## Getting Started
 
 ```c++
 #include "../include/color.hpp"
@@ -32,61 +32,59 @@ You are seeing `Hello, World!` in aqua.
 
 <img src="image/hello.png" width="150"/> 
 
+** Try saying "Hello, World" yourself with the [source code](examples/hello.cpp).*
+
 ## Why Use It?
 
-<img src="image/use.png" width="400"/>
+<img src="image/use.png" width="450"/>
 
-1. **No need to reset :**  most solutions on the market work like manipulators, which *constantly* require you to do a resetting whenever you make a setting. While this traditional approach is also offered in this library in the `hue` namespace
-
-   ```c++
-   cout << hue::red << "When in doubt, wear red." << hue::reset << endl;
-   cout << hue::green << "When you're green, you're growing." << hue::reset << endl;
-   ```
-
-   it can be boring to do so. Why not just `dye` with
+1. **No need to reset :**  most solutions on the market work like manipulators, which *constantly* require you to reset the screen color after you set it. While this traditional approach is also offered in this library in the `hue` namespace
 
    ```c++
-   cout << dye::red("When in doubt, wear red.") << endl;
-   cout << dye::green("When you're green, you're growing.") << endl;
+   cout << "When in doubt, wear " << hue::red << "red"  << hue::reset << "." << endl;
    ```
 
-2. **Object-oriented :**  so that you may `dye` an object and save it for later output
+   it can be boring to do so. Why not just `dye` the object
 
    ```c++
-   auto obj = dye::aqua("a light bluish-green color");
-   cout << obj << endl;
+   cout << "When in doubt, wear " << dye::red("red") << "." << endl;
    ```
 
-3. **`dye` anything :**  
+2. **Object-oriented :**  you may `dye` an object and print it out for multiple times
 
    ```c++
-   cout << dye::blue(42 + 7 % 8) << endl;
-   cout << dye::yellow(string("It shed a yellow light.")) << endl;
+   auto green = dye::green("green");
+   cout << "I saw "<< green << " trees, " << green << " bushes." << endl;
    ```
 
-   In fact, you can `dye` any object for which `operator<<` is properly defined can be dyed.
+3. **`dye` anything :** `int` `double` `char` `std::string` ...
 
-   With properly defined and declared
+   ```c++
+   cout << "Take the " << dye::blue("Blue") << " Line and then "
+        << "catch Bus " << dye::yellow(42 + 7 % 8) << "."<< endl;
+   ```
+
+   In fact, you can `dye` any object for which `operator<<` is properly defined. Suppose we have
 
    ```c++
    struct DoubleVector;
    ostream & operator<<(ostream &, const DoubleVector &);
    ```
 
-    we are free to call with
+    we are free to `dye`
 
     ```c++
    cout << dye::purple(DoubleVector{3.14, 2.72}) << endl;
     ```
 
 
-4. **`+` supported, even with different colors :**
+4. **`+`  between objects, even colors differ :**
 
    ```c++
    cout << dye::light_red('A') + dye::light_blue('B') + dye::light_green('C') << endl;
    ```
 
-5. **Extra support for strings :**  be it `std::string` or C-style strings, dyed or undyed, strings can link up easily.
+5. **Extra support for strings :**  be it `std::string` or C-style strings, dyed or undyed, you can mix them up without caring about their types.
 
    ```c++ 
    const char ca[] = "ca";
@@ -94,12 +92,14 @@ You are seeing `Hello, World!` in aqua.
    cout << "[ " + dye::aqua(ca) + " | " + dye::aqua(str) + " ]" << endl;
    ```
 
-6. **Convenient and extensible API :**  In the following code, `colorize` takes colors as parameters, while `inverse` method quickly gets you the inversed color.
+6. **Convenient and extensible API :**  say `colorize` an object according to the parameter, or quickly `inverse` the color
 
    ```c++
    double a = 88.88;
    cout << dye::colorize(a, a >= 0 ? "red" : "green").inverse() << endl;
    ```
+
+** Try the above yourself with the [source code](examples/use.cpp).*
 
 ## A Real Example
 
@@ -138,7 +138,7 @@ To mark the introductory paragraph of a tech news
 cout << mark(tech_news, "light_red") << endl;
 ```
 
-We are having
+You will see
 
 <img src="image/tech.png" width="600"/> 
 
@@ -152,4 +152,5 @@ We are having
 
 <img src="image/stock.png" width="600"/> 
 
+** For the entire implementation, see the [source code](examples/mark.cpp).*
 

@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <cctype>
 #include <iostream>
-#include <set>
 #include <iterator>
+#include <set>
 #include <sstream>
 #include <string>
 
@@ -84,8 +84,7 @@ int main()
                       "Twitter are headed to Capitol Hill. Here's what you "
                       "can expect from their hearings.";
 
-    auto tech_news_marked = mark(tech_news, "light_red");
-    cout << endl << tech_news_marked << endl;
+    cout << mark(tech_news, "light_red") << endl;
 
     auto stock_news = "Shares in Twitter, Snap and Facebook all declined "
                       "significantly, dragging the Nasdaq down more than 1% "
@@ -98,8 +97,7 @@ int main()
                       "nearly 1% to close at 1186.48.\nMicrosoft fell almost "
                       "3% on the day, to $108.49.";
 
-    auto stock_news_marked = mark(stock_news, "yellow");
-    cout << endl << stock_news_marked << endl;
+    cout << mark(stock_news, "yellow") << endl;
 
     return 0;
 }
