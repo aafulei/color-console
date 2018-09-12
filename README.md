@@ -99,7 +99,7 @@ You are seeing `Hello, World!` in aqua.
    cout << "[ " + dye::aqua(ca) + " | " + dye::aqua(str) + " ]" << endl;
    ```
 
-6. **Convenient and extensible API :**  say `colorize` an object according to the parameter, or quickly `invert the color
+6. **Convenient and extensible API :**  say `colorize` an object according to the parameter, or quickly `invert` the color
 
    ```c++
    double a = 88.88;
