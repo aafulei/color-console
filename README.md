@@ -10,6 +10,7 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 - [Getting Started](#user-content-getting-started)
 - [Why Use It?](#user-content-why-use-it)
 - [A Real Example](#user-content-a-real-example)
+- [How To Use](#user-content-how-to-use)
 
 ## Installation
 
@@ -156,3 +157,19 @@ We are having
 
 *For the details, see the [full implementation](examples/mark.cpp).*
 
+## How To Use
+
+- **Color Tags**
+  - **Single**
+    - ***Basic***  `black` `blue` `green` `aqua` `red` `purple` `yellow` `white` `grey`
+    - ***Light***  `light_[basic]` *e.g.* `light_blue` `light_red` (*note: no* `light_black/white/grey`)
+    - ***Bright***  `bright_white`
+  - **Background**
+    - `on_[single]` *e.g.* `on_grey`  `on_light_aqua` `on_bright_white`
+  - **Compound**
+    - `[single]_on_[single]` *e.g.* `black_on_yellow` `light_red_on_bright_white`
+  - **Special**
+    - `vanilla`: do nothing, can be useful in type declaration, *e.g.* `auto a = dye::vanilla(""); a +=  dye::red("red");` 
+- **Namespace `dye`**
+    1. `dye::[color_tag](object)` generates a dyed object ready for colorized output
+- **Namespace** `hue`
