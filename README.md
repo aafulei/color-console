@@ -168,7 +168,7 @@ We are having
 1. objected-oriented [`dye`](#user-content-dye-namespace) ( :star:*highly recommended* ) 
 2. console-oriented, manipulator-like, traditional [`hue`](#user-content-hue-namespace)
 
-There are 16 singles colors and thus 256 combinations (text + background) supported by Windows console.
+There are 16 single colors and thus 256 combinations (text + background) supported by Windows console.
 
 Know the [color tags](#user-content-color-tags) and `dye` your console (or change its `hue`) immediately!
 
