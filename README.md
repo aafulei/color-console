@@ -108,6 +108,8 @@ You are seeing `Hello, World!` in aqua.
 
 *Try the [above cases](examples/why.cpp) yourself.*
 
+[Back to Contents](#user-content-contents)
+
 ## A Real Example
 
 With [Color Console](include/color.hpp), we implement an [auto marker](examples/mark.cpp) which highlights keywords given in a watch list and colorizes numbers as well. The key function is
@@ -160,6 +162,8 @@ We are having
 <img src="image/stock.png" width="600"/> 
 
 *For the details, see the [full implementation](examples/mark.cpp).*
+
+[Back to Top](#user-content-color-console)
 
 ## How to Use
 
@@ -264,6 +268,8 @@ Know the color tags and `dye` your console (or change its `hue`) immediately!
 
   *Note: Do remember to `reset`, otherwise you're causing troubles to late-users of the console.*
 
+  [Back to Contents](#user-content-contents)
+
 ## Technical Note
 
 - *move semantics* are widely used. Fast `+` operations are supported between dyed objects, especially for temporaries. Since more rvalues than lvalues are expected in use, we adopt a *pass-by-value-and-move* pattern.
@@ -274,3 +280,4 @@ Know the color tags and `dye` your console (or change its `hue`) immediately!
 
 
 [Back to Top](#user-content-color-console)
+
