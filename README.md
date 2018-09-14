@@ -1,5 +1,7 @@
 # Color Console
 
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=plastic)
+
 A lightweight header-only C++ library to bring colors to your Windows console with a very-easy-to-use API that frees you from the burden of setting and resetting screen colors every time you make a call.
 
 <img src="image/tech.png" width="600"/>
