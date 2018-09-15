@@ -272,3 +272,6 @@ Know the color tags and `dye` your console (or change its `hue`) immediately!
 
 
 [Back to Top](#user-content-color-console)
+
+[back](#color-console)
+
