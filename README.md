@@ -6,15 +6,15 @@ A lightweight header-only C++ library to bring colors to your Windows console wi
 
 ## Contents
 
-- [Installation](#user-content-instllation)
-- [Getting Started](#user-content-getting-started)
-- [Why Use It?](#user-content-why-use-it)
-- [A Real Example](#user-content-a-real-example)
-- [How to Use](#user-content-how-to-use)
-  - [Color Tags](#user-content-color-tags)
-  - [`dye` Namespace](#user-content-dye-namespace)
-  - [`hue` Namespace](#user-content-hue-namespace)
-- [Technical Note](#user-content-technical-note)
+- [Installation](#instllation)
+- [Getting Started](#getting-started)
+- [Why Use It?](#why-use-it)
+- [A Real Example](#a-real-example)
+- [How to Use](#how-to-use)
+  - [Color Tags](#color-tags)
+  - [`dye` Namespace](#dye-namespace)
+  - [`hue` Namespace](#hue-namespace)
+- [Technical Note](#technical-note)
 
 ## Installation
 
@@ -271,7 +271,4 @@ Know the color tags and `dye` your console (or change its `hue`) immediately!
 
 
 
-[Back to Top](#user-content-color-console)
-
-[back](#color-console)
-
+[Back to Top](#color-console)
